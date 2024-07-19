@@ -1,7 +1,7 @@
 export default ({ children, exito }) => {
     return (
         <div
-            className={`p-6 border-l-4 ${
+            className={`p-4 flex items-center border-l-4 ${
                 exito ? "border-green-500" : "border-red-500"
             } rounded-r-xl 
                     ${exito ? "bg-green-50" : "bg-red-50"} flex mt-2`}
@@ -9,11 +9,9 @@ export default ({ children, exito }) => {
             <div>
                 {exito ? (
                     <svg
-                        width="40"
-                        height="40"
+                        width="25"
                         viewBox="0 0 40 40"
                         fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
                     >
                         <g id="checkmark-circle">
                             <path
@@ -25,11 +23,9 @@ export default ({ children, exito }) => {
                     </svg>
                 ) : (
                     <svg
-                        width="30"
-                        height="30"
+                        width="25"
                         viewBox="0 0 30 30"
                         fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
                     >
                         <path
                             id="Vector"
