@@ -5,7 +5,14 @@ import correoIcon from "@assets/icons/correo.svg";
 import contraseñaIcon from "@assets/icons/contraseña.svg";
 import enviarIcon from "@assets/icons/enviar.svg";
 
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 export default function Register() {
+
+    useEffect(() => {
+        document.title = "Asociación de la ESFOT - Registro del Chef";
+    }, []);
 
     return (
         <>
@@ -28,7 +35,7 @@ export default function Register() {
                                 alt=""
                             />
                             <input
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all"
+                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
                                 type="text"
                                 placeholder="Ingrese su nombre"
                                 required
@@ -42,7 +49,7 @@ export default function Register() {
                                 alt=""
                             />
                             <input
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all"
+                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
                                 type="email"
                                 placeholder="Ingrese su correo electrónico"
                                 required
@@ -56,7 +63,7 @@ export default function Register() {
                                 alt=""
                             />
                             <input
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all"
+                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
                                 type="password"
                                 placeholder="Ingrese una contraseña"
                                 required
@@ -70,7 +77,7 @@ export default function Register() {
                                 alt=""
                             />
                             <input
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all"
+                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
                                 type="password"
                                 placeholder="Repita su contraseña"
                                 required
@@ -79,7 +86,7 @@ export default function Register() {
                     </div>
 
                     <div className="flex flex-col items-center gap-y-2">
-                        <button className="bg-gradient-to-r from-primary to-primary-dark py-1 px-16 flex items-center text-lg gap-x-2 rounded-xl hover:scale-105 transition-all">
+                        <button className="bg-gradient-to-r from-primary to-primary-dark py-1 px-16 flex items-center text-lg gap-x-2 rounded-xl hover:scale-105 transition-all shadow-md shadow-black/30">
                             Registrar
                             <img
                                 className="h-4"
@@ -88,10 +95,10 @@ export default function Register() {
                             />
                         </button>
                         <span className="text-sm ">
-                            ¿Tienes una cuenta? <a className="font-bold text-secondary" href="/login"> Inicia sesión</a>
+                            ¿Tienes una cuenta? <Link className="font-bold text-secondary hover:text-secondary/80 transition-all" to="/login"> Inicia sesión</Link>
                         </span>
                         <span className="text-sm ">
-                            ¿Olvidaste tu contraseña? <a className="font-bold text-secondary" href="/login"> Recuperala</a>
+                            ¿Olvidaste tu contraseña? <Link className="font-bold text-secondary hover:text-secondary/80 transition-all" to="/login"> Recuperala</Link>
                         </span>
                     </div>
                 </form>
