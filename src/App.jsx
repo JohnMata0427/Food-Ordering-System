@@ -1,22 +1,30 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from '@pages/auth/Register'
-import AuthLayout from '@layouts/AuthLayout';
-import NotFound from '@pages/404';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Register from "@pages/auth/Register";
+import AuthLayout from "@layouts/AuthLayout";
+import NotFound from "@pages/404";
+import Home from "@pages/Home";
+import { useState } from "react";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AuthLayout />}>
-            <Route path="registro" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
 
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+  const [isAuth, setIsAuth] = useState(false);
+
+	return (
+		<>
+			<BrowserRouter>
+				<Routes>
+          <Route path="/" element={isAuth ? <Navigate to="/home" /> : <Navigate to="/auth/registro" />} />
+					<Route path="auth" element={<AuthLayout />}>
+						<Route path="registro" element={<Register />} />
+					</Route>
+
+          <Route path="/home" element={<Home />} />
+
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
-export default App
+export default App;
