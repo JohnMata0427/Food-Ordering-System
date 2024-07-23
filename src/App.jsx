@@ -8,11 +8,14 @@ import { AuthProvider } from "@contexts/AuthProvider";
 
 function App() {
 
+	const isAuth = localStorage.getItem("token");
+
 	return (
 		<>
 			<BrowserRouter>
 				<AuthProvider>
 					<Routes>
+						<Route path="/" element={isAuth ? <Home /> : <Navigate to="/auth/registro" />} />
 						<Route path="auth" element={<AuthLayout />}>
 							<Route path="registro" element={<Register />} />
 						</Route>
