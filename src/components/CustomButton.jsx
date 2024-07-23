@@ -1,7 +1,3 @@
-import classNames from "classnames";
-import { useState } from "react";
-import { useEffect } from "react";
-
 export function CustomButton({
 	children,
 	texto,
@@ -11,25 +7,44 @@ export function CustomButton({
 	masEstilos,
 }) {
 	const variantsColor = {
-		black: "border-black bg-black hover:text-black",
-		white: "border-white bg-white hover:text-white",
-        yellow: "border-[#DCB50E] bg-[#DCB50E] hover:text-[#DCB50E]"
+		black: [
+			"bg-black border-black",
+			"group-hover:text-black focus:text-black",
+			"group-hover:fill-black",
+		],
+		yellow: [
+			"bg-[#DCB50E] border-[#DCB50E]",
+			"group-hover:text-[#DCB50E] focus:text-[#DCB50E]",
+			"group-hover:fill-[#DCB50E]",
+		],
+		white: [
+			"bg-white border-white",
+			"group-hover:text-white focus:text-white",
+			"group-hover:fill-white",
+		],
 	};
 
 	const variantsHoverColor = {
-		black: "text-black before:bg-black hover:shadow-black",
-		white: "text-black before:bg-white hover:shadow-white",
+		white: "bg-white",
+		black: "bg-black",
 	};
 
 	return (
 		<button
-			className={`font-medium rounded-md h-10 relative overflow-hidden border px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:transition-all before:duration-500 hover:before:left-0 hover:before:w-full flex items-center ${variantsColor[color]} ${variantsHoverColor[hover]} ${masEstilos}`}
+			className={`group tracking-wide select-none text-base relative inline-flex items-center justify-center cursor-pointer h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 ${variantsColor[color][0]} ${masEstilos}`}
 		>
-			{cargando ? (
+			{!cargando ? (
+				<>
+					<strong className={`font-medium ${variantsColor[color][1]}`}>
+						{texto}
+					</strong>
+					{children}
+				</>
+			) : (
 				<svg
 					aria-hidden="true"
 					role="status"
-					className={`inline w-4 h-4 me-3 text-${colorClass} animate-spin`}
+					className={`inline w-4 h-4 me-3 text-black animate-spin`}
 					viewBox="0 0 100 101"
 					fill="none"
 				>
@@ -42,12 +57,10 @@ export function CustomButton({
 						fill="currentColor"
 					/>
 				</svg>
-			) : (
-				<>
-					<span className="relative z-10"> {texto} </span>
-					{children}
-				</>
 			)}
+			<span
+				className={`absolute bottom-0 w-0 left-1/2 h-full -translate-x-1/2 transition-all ease-in-out duration-300 group-hover:w-[105%] -z-[1] group-focus:w-[105%] ${variantsHoverColor[hover]}`}
+			></span>
 		</button>
 	);
 }
