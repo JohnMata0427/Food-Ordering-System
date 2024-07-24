@@ -210,7 +210,7 @@ export default function Register() {
 							¿Olvidaste tu contraseña?{" "}
 							<Link
 								className="font-bold text-secondary hover:text-secondary/80 transition-all"
-								to="/auth/recuperar-password"
+								to="/auth/recuperar-contraseña"
 							>
 								Recuperala
 							</Link>
