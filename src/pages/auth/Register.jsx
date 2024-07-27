@@ -14,7 +14,7 @@ import axios from "axios";
 
 export default function Register() {
 	useEffect(() => {
-		document.title = "Asociación de la ESFOT - Registro del Chef";
+		document.title = "Asociación de la ESFOTr - Registro del Chef";
 	}, []);
 
 	const [form, setForm] = useState({
