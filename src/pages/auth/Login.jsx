@@ -3,7 +3,7 @@ import chefsImg from "@assets/ui/chefs.png";
 import correoIcon from "@icons/correo.svg";
 import contraseñaIcon from "@icons/contraseña.svg";
 import { CustomButton } from "@components/CustomButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
@@ -12,12 +12,11 @@ export default function Login() {
     useEffect(() => {
         document.title = "Asociación de la ESFOT - Iniciar Sesión";
     }, []);
-
+    const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
         password: ""
     });
-
     const [message, setMessage] = useState({});
 
     const handleChange = (e) => {
@@ -33,7 +32,9 @@ export default function Login() {
             .post(`${import.meta.env.VITE_BACKEND_URL}/login`, form)
             .then((response) => {
                 console.log(response);
+                localStorage.setItem('token', respuesta.data.token)
             })
+            navigate('/dashboard')
 
             .catch((error) => {
                 console.log(error);
