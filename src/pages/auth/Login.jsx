@@ -1,10 +1,8 @@
 // Importación de imágenes
 import chefsImg from "@assets/ui/chefs.png";
-import correoIcon from "@assets/icons/correo.svg";
-import contraseñaIcon from "@assets/icons/contraseña.svg";
-
+import correoIcon from "@icons/correo.svg";
+import contraseñaIcon from "@icons/contraseña.svg";
 import { CustomButton } from "@components/CustomButton";
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Alerta from "@components/Alerta";

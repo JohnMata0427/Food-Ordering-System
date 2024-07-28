@@ -26,7 +26,7 @@ function App() {
 						<Route path="/" element={isAuth ? <Home /> : <Navigate to="/auth/registro" />} />
 						<Route path="auth" element={<AuthLayout />}>
 							<Route path="registro" element={<Register />} />
-							<Route path="confirmar-email" element={<ConfirmEmail />} />
+							<Route path="confirmar-email/:token" element={<ConfirmEmail />} />
 							<Route path="email-confirmado" element={<EmailConfirmed />} />
 							<Route path="iniciar-sesion" element={<Login />} />
 
