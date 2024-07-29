@@ -5,10 +5,9 @@ import Verification from "./pages/auth/Verification";
 import Reset from "./pages/auth/Reset";
 import NotFound from "@pages/404";
 import Home from "@pages/Home";
+import AuthLayout from "./layouts/AuthLayout";
 
 import { AuthProvider } from "@contexts/AuthProvider";
-import Reset from "./pages/auth/Verification";
-import Verification from "./pages/auth/Verification";
 
 function App() {
 
