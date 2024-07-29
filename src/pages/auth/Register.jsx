@@ -4,9 +4,7 @@ import usuarioIcon from "@assets/icons/usuario.svg";
 import telefonoIcon from "@assets/icons/telefono.svg";
 import correoIcon from "@assets/icons/correo.svg";
 import contraseñaIcon from "@assets/icons/contraseña.svg";
-
 import { CustomButton } from "@components/CustomButton";
-
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Alerta from "@components/Alerta";
@@ -46,6 +44,7 @@ export default function Register() {
 					exito: true,
 				});
 			})
+		setForm({})
 			.catch((error) => {
 				console.log(error);
 				setMessage({
@@ -201,20 +200,12 @@ export default function Register() {
 							¿Tienes una cuenta?{" "}
 							<Link
 								className="font-bold text-secondary hover:text-secondary/80 transition-all"
-								to="/auth/login"
+								to="/auth/iniciar-sesion"
 							>
 								Inicia sesión
 							</Link>
 						</span>
-						<span className="text-sm ">
-							¿Olvidaste tu contraseña?{" "}
-							<Link
-								className="font-bold text-secondary hover:text-secondary/80 transition-all"
-								to="/auth/recuperar-contraseña"
-							>
-								Recuperala
-							</Link>
-						</span>
+
 					</div>
 				</form>
 			</div>
