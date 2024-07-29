@@ -44,7 +44,6 @@ export default function Register() {
 					exito: true,
 				});
 			})
-		setForm({})
 			.catch((error) => {
 				console.log(error);
 				setMessage({
