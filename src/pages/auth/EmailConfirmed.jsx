@@ -10,8 +10,7 @@ export default function ConfirmEmail() {
     }, []);
     return (
         <>
-            <div className="w-1/2 min-h-screen bg-[url('/fondo-autenticacion.png')] bg-no-repeat bg-cover bg-center sm:block hidden"></div>
-            <div className="flex flex-col justify-center items-center sm:w-1/2 w-full py-4">
+            <div className="flex flex-col justify-center items-center sm:w-2/5 w-full py-4">
                 <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
                 <h1 className="text-2xl font-semibold mb-2 text-center uppercase pt-2 pb-5">
                     CORREO ELECTRÓNICO CONFIRMADO

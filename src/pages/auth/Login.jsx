@@ -47,12 +47,11 @@ export default function Login() {
 
     return (
         <>
-            <div className="w-1/2 min-h-screen bg-[url('/fondo-autenticacion.png')] bg-no-repeat bg-cover bg-center sm:block hidden"></div>
 
-            <div className="flex flex-col justify-center items-center sm:w-1/2 w-full py-4">
+            <div className="flex flex-col justify-center items-center sm:w-2/5 w-full py-4">
                 <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
                 <h1 className="text-2xl font-semibold mb-2 text-center uppercase pt-2 pb-5">
-                    INICIAR SESIÓN
+                    Iniciar Sesión
                 </h1>
 
                 <form
@@ -62,7 +61,7 @@ export default function Login() {
                     <div className="flex flex-col gap-y-4 w-full">
                         <div className="relative">
                             <img
-                                className="absolute top-[9px] left-3 size-4"
+                                className="absolute inset-y-0 my-auto left-4 size-4"
                                 src={correoIcon}
                                 alt="Icono de correo"
                             />
@@ -72,7 +71,7 @@ export default function Login() {
                                 value={form.email || ""}
                                 onChange={handleChange}
                                 type="email"
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+                                className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
                                 placeholder="Ingrese su correo electrónico"
                                 required
                             />
@@ -80,7 +79,7 @@ export default function Login() {
 
                         <div className="relative">
                             <img
-                                className="absolute top-[9px] left-3 size-4"
+                                className="absolute inset-y-0 my-auto left-4 size-4"
                                 src={contraseñaIcon}
                                 alt="Icono de contraseña"
                             />
@@ -90,21 +89,13 @@ export default function Login() {
                                 value={form.password || ""}
                                 onChange={handleChange}
                                 type="password"
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+                                className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
                                 placeholder="Ingrese una contraseña"
                                 required
                             />
                         </div>
                     </div>
-                    <span className="text-sm ">
-                        ¿No tienes una cuenta?{" "}
-                        <Link
-                            className="font-bold text-secondary hover:text-secondary/80 transition-all"
-                            to="/auth/registro"
-                        >
-                            Registrate
-                        </Link>
-                    </span>
+                    
 
                     {message.mensaje && (
                         <Alerta exito={message.exito}>{message.mensaje}</Alerta>
@@ -124,12 +115,13 @@ export default function Login() {
                             </svg>
                         </CustomButton>
                     </div>
+                    
                 </form>
                 <div className="flex flex-col items-center gap-y-2 pb-5 pt-3">
                     <span className="text-sm pb-5 pt-3">
                         ¿Olvidaste tu contraseña?{" "}
                         <Link
-                            className="font-bold text-secondary hover:text-secondary/80 transition-all"
+                            className="font-bold text-secondary hover:text-secondary/80 "
                             to="/auth/recuperar-contraseña"
                         >
                             Recuperala

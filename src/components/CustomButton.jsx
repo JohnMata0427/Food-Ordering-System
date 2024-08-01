@@ -32,7 +32,7 @@ export function CustomButton({
 
 	return (
 		<button
-			className={`group tracking-wide select-none text-base relative inline-flex items-center justify-center cursor-pointer h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 ${variantsColor[color][0]} ${masEstilos}`}
+			className={`group tracking-wide select-none text-base relative inline-flex items-center justify-center cursor-pointer h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10  duration-300 ease-in-out outline-0 ${variantsColor[color][0]} ${masEstilos}`}
 			onClick={onClick}
 		>
 			{!cargando ? (
@@ -61,7 +61,7 @@ export function CustomButton({
 				</svg>
 			)}
 			<span
-				className={`absolute bottom-0 w-0 left-1/2 h-full -translate-x-1/2 transition-all ease-in-out duration-300 group-hover:w-[105%] -z-[1] group-focus:w-[105%] ${variantsHoverColor[hover]}`}
+				className={`absolute bottom-0 w-0 left-1/2 h-full -translate-x-1/2  ease-in-out duration-300 group-hover:w-[105%] -z-[1] group-focus:w-[105%] ${variantsHoverColor[hover]}`}
 			></span>
 		</button>
 	);
