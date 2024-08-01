@@ -33,7 +33,6 @@ export default function Recovery() {
 
     return (
         <>
-            <div className="w-1/2 min-h-screen bg-[url('/fondo-autenticacion.png')] bg-no-repeat bg-cover bg-center sm:block hidden"></div>
 
             <div className="flex flex-col justify-center items-center sm:w-1/2 w-full py-4">
                 <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
@@ -48,7 +47,7 @@ export default function Recovery() {
                     <div className="flex flex-col gap-y-4 w-full">
                         <div className="relative">
                             <img
-                                className="absolute top-[9px] left-3 size-4"
+                                className="absolute inset-y-0 my-auto left-4 size-4"
                                 src={correoIcon}
                                 alt="Icono de correo"
                             />
@@ -58,7 +57,7 @@ export default function Recovery() {
                                 value={mail || ""}
                                 onChange={handleChange}
                                 type="email"
-                                className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+                                className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
                                 placeholder="Ingrese su correo electrónico"
                                 required
                             />
