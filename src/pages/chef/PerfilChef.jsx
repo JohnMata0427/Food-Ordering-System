@@ -17,17 +17,15 @@ export default function PerfilChef() {
 	const { auth } = useContext(AuthContext);
 
 	return (
-		<>
-			<div className="w-1/3 min-h-screen bg-no-repeat bg-cover bg-center sm:block hidden">
-				<img
-					src={ChefPerfil}
-					alt="ChefPerfil"
-					className="w-full h-auto max-h-[calc(100vh-7rem)] object-contain"
-				/>
-			</div>
+		<div className="flex justify-center my-4">
+			<img
+				src={ChefPerfil}
+				alt="ChefPerfil"
+				className="w-1/4"
+			/>
 
 			<div className="flex flex-col justify-center items-center sm:w-1/2 w-full py-4 pl-6">
-				<h1 className="text-2xl font-semibold mb-2 font-aoboshi pt-2 pb-5">
+				<h1 className="text-7xl font-semibold mb-2 font-aoboshi pt-2 pb-5">
 					Samuel Cuti
 				</h1>
 
@@ -71,6 +69,6 @@ export default function PerfilChef() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

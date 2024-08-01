@@ -13,6 +13,7 @@ import ConfirmEmail from "./pages/auth/ConfirmEmail";
 import EmailConfirmed from "./pages/auth/EmailConfirmed";
 import ActualizarPerfil from "./pages/chef/ActualizarPerfil";
 import PerfilChef from "./pages/chef/PerfilChef";
+import UserLayout from "./layouts/UserLayout";
 
 function App() {
 	const isAuth = localStorage.getItem("token");
@@ -24,8 +25,9 @@ function App() {
 					<Routes>
 						<Route
 							path="/"
-							element={isAuth ? <Home /> : <Navigate to="/auth/registro" />}
+							element={<Navigate to={isAuth ? "/home" : "/auth/registro"} />}
 						/>
+
 						<Route path="auth" element={<AuthLayout />}>
 							<Route path="registro" element={<Register />} />
 							<Route path="confirmar-email/:token" element={<ConfirmEmail />} />
@@ -37,9 +39,11 @@ function App() {
 							<Route path="restablecer-contraseña" element={<Reset />} /> */}
 						</Route>
 
-						<Route path="perfil" element={<ActualizarPerfil />} />
-						<Route path="chef" element={<PerfilChef />} />
-						<Route path="home" element={<Home />} />
+						<Route path="/" element={<UserLayout />}>
+							<Route path="actualizar-perfil" element={<ActualizarPerfil />} />
+							<Route path="perfil" element={<PerfilChef />} />
+							<Route path="home" element={<Home />} />
+						</Route>
 
 						<Route path="*" element={<NotFound />} />
 					</Routes>

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { CustomButton } from "./CustomButton";
 
 export default function Header() {
 	return (
@@ -7,10 +6,18 @@ export default function Header() {
 			<nav className="flex items-center gap-x-16">
 				<img className="w-auto h-12" src="logo-con-texto.png" alt="Logo" />
 				<ul className="flex gap-x-8 text-white">
-					<li>Inicio</li>
-					<li>Categorías</li>
-					<li>Ordenar</li>
-					<li>Contacto</li>
+					<li>
+						<Link to="/home">Inicio</Link>
+					</li>
+					<li>
+						<Link to="/categorias">Categorias</Link>
+					</li>
+					<li>
+						<Link to="/ordernar">Ordenar</Link>
+					</li>
+					<li>
+						<Link to="/contacto">Contacto</Link>
+					</li>
 				</ul>
 			</nav>
 			<div className="flex items-center justify-end gap-x-4">
@@ -42,7 +49,7 @@ export default function Header() {
 							d="M25 14.06c-1.93 0-3.67.72-4.9 2.04a6.62 6.62 0 0 0-1.72 5.07c.28 3.83 3.25 6.95 6.62 6.95s6.33-3.12 6.62-6.95a6.56 6.56 0 0 0-1.73-5.06A6.63 6.63 0 0 0 25 14.06Z"
 						/>
 					</svg>
-                    <span>Perfil</span>
+					<span>Perfil</span>
 				</Link>
 			</div>
 		</header>
