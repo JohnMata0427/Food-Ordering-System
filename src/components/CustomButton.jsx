@@ -32,7 +32,7 @@ export function CustomButton({
 
 	return (
 		<button
-			className={`group tracking-wide select-none text-base relative inline-flex items-center justify-center cursor-pointer h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10  duration-300 ease-in-out outline-0 ${variantsColor[color][0]} ${masEstilos}`}
+			className={`group tracking-wide select-none text-base relative inline-flex items-center justify-center cursor-pointer h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10 duration-300 ease-in-out outline-0 ${variantsColor[color][0]} ${masEstilos}`}
 			onClick={onClick}
 		>
 			{!cargando ? (

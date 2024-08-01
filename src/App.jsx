@@ -11,11 +11,10 @@ import Recovery from "./pages/auth/Recovery";
 import Login from "./pages/auth/Login";
 import ConfirmEmail from "./pages/auth/ConfirmEmail";
 import EmailConfirmed from "./pages/auth/EmailConfirmed";
-import ActualizarPerfil from "./pages/auth/ActualizarPerfil";
-import PerfilChef from "./pages/auth/PerfilChef";
+import ActualizarPerfil from "./pages/chef/ActualizarPerfil";
+import PerfilChef from "./pages/chef/PerfilChef";
 
 function App() {
-
 	const isAuth = localStorage.getItem("token");
 
 	return (
@@ -23,23 +22,24 @@ function App() {
 			<BrowserRouter>
 				<AuthProvider>
 					<Routes>
-						<Route path="/" element={isAuth ? <Home /> : <Navigate to="/auth/registro" />} />
+						<Route
+							path="/"
+							element={isAuth ? <Home /> : <Navigate to="/auth/registro" />}
+						/>
 						<Route path="auth" element={<AuthLayout />}>
 							<Route path="registro" element={<Register />} />
 							<Route path="confirmar-email/:token" element={<ConfirmEmail />} />
 							<Route path="email-confirmado" element={<EmailConfirmed />} />
 							<Route path="iniciar-sesion" element={<Login />} />
 							<Route path="recuperar-contraseña" element={<Recovery />} />
-							<Route path="perfil" element={<ActualizarPerfil />}/>
-							<Route path="chef" element={<PerfilChef />}/>
-							
 
-							
 							{/*<Route path="codigo-verificacion" element={<Verification />} />
 							<Route path="restablecer-contraseña" element={<Reset />} /> */}
 						</Route>
 
-						<Route path="/home" element={<Home />} />
+						<Route path="perfil" element={<ActualizarPerfil />} />
+						<Route path="chef" element={<PerfilChef />} />
+						<Route path="home" element={<Home />} />
 
 						<Route path="*" element={<NotFound />} />
 					</Routes>
