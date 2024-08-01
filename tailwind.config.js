@@ -4,6 +4,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
       extend: {
+
+        fontFamily:{
+            aoboshi: ['Aoboshi One', 'sans-serif']
+
+        },
           colors: {
               primary: {
                   DEFAULT: "#FCCE0B",

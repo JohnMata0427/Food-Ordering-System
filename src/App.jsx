@@ -11,6 +11,8 @@ import Recovery from "./pages/auth/Recovery";
 import Login from "./pages/auth/Login";
 import ConfirmEmail from "./pages/auth/ConfirmEmail";
 import EmailConfirmed from "./pages/auth/EmailConfirmed";
+import ActualizarPerfil from "./pages/auth/ActualizarPerfil";
+import PerfilChef from "./pages/auth/PerfilChef";
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
 							<Route path="email-confirmado" element={<EmailConfirmed />} />
 							<Route path="iniciar-sesion" element={<Login />} />
 							<Route path="recuperar-contraseña" element={<Recovery />} />
+							<Route path="perfil" element={<ActualizarPerfil />}/>
+							<Route path="chef" element={<PerfilChef />}/>
 							
 
 							
