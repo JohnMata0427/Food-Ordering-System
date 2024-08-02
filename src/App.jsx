@@ -25,7 +25,7 @@ function App() {
 					<Routes>
 						<Route
 							path="/"
-							element={<Navigate to={isAuth ? "/home" : "/auth/registro"} />}
+							element={<Navigate to={isAuth ? "/inicio" : "/auth/registro"} />}
 						/>
 
 						<Route path="auth" element={<AuthLayout />}>
@@ -40,9 +40,9 @@ function App() {
 						</Route>
 
 						<Route path="/" element={<UserLayout />}>
+							<Route index path="inicio" element={<Home />} />
 							<Route path="actualizar-perfil" element={<ActualizarPerfil />} />
 							<Route path="perfil" element={<PerfilChef />} />
-							<Route path="home" element={<Home />} />
 						</Route>
 
 						<Route path="*" element={<NotFound />} />
