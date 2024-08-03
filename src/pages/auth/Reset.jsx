@@ -38,7 +38,7 @@ export default function Reset() {
 			const respuesta = await axios.post(url, form);
 			setMensaje({ respuesta: respuesta.data.msg, exito: true });
 			setTimeout(() => {
-				navigate("auth/iniciar-sesion");
+				navigate("/auth/iniciar-sesion");
 			}, 3000);
 		} catch (error) {
 			setMensaje({ respuesta: error.response.data.msg, exito: false });

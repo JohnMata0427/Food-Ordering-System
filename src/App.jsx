@@ -14,10 +14,15 @@ import EmailConfirmed from "@pages/auth/EmailConfirmed";
 import ActualizarPerfil from "@pages/chef/ActualizarPerfil";
 import PerfilChef from "@pages/chef/PerfilChef";
 import Categorias from "@pages/Categorias";
+import Food from "./pages/Food";
+import Drinks from "./pages/Drinks";
+import Snacks from "./pages/Snacks";
 import Ordenar from "@pages/Ordenar";
 import Contacto from "@pages/Contacto";
 import Verification from "@pages/auth/Verification";
 import Reset from "@pages/auth/Reset";
+import Historial from "./pages/estudiante/Historial";
+import Detalle_pedido from "./pages/estudiante/Detalle_pedido";
 
 export default function App() {
 	return (
@@ -32,7 +37,7 @@ export default function App() {
 							<Route path="email-confirmado" element={<EmailConfirmed />} />
 							<Route path="recuperar-contraseña" element={<Recovery />} />
 							<Route path="codigo-verificacion" element={<Verification />} />
-							<Route path="reestablecer-contraseña" element={<Reset />} />
+							<Route path="restablecer-contraseña" element={<Reset />} />
 						</Route>
 
 						<Route
@@ -43,6 +48,11 @@ export default function App() {
 										<Route element={<UserLayout />}>
 											<Route index path="inicio" element={<Home />} />
 											<Route path="categorias" element={<Categorias />} />
+											<Route path="historial" element={<Historial/>}/>
+											<Route path="pedido/:id" element={<Detalle_pedido/>}/>
+											<Route path="categorias/comidas" element={<Food />} />
+											<Route path="categorias/bebidas" element={<Drinks />} />
+											<Route path="categorias/postres" element={<Snacks />} />
 											<Route path="ordenar" element={<Ordenar />} />
 											<Route path="contacto" element={<Contacto />} />
 											<Route
