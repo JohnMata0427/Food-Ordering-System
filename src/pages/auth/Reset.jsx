@@ -3,17 +3,17 @@ import chefsImg from "@assets/ui/chefs.png";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "@components/CustomButton";
 
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
 import PasswordInput from "@components/PasswordInput";
 import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Reset() {
-	const { token } = useParams();
+	const [params] = useSearchParams();
+
 	const [mensaje, setMensaje] = useState({});
-	const [tokenback, setTokenBack] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -34,15 +34,14 @@ export default function Reset() {
 		try {
 			const url = `${
 				import.meta.env.VITE_BACKEND_URL
-			}/chef/nuevopassword/${token}`;
+			}/chef/nuevopassword?i=${params.get("i")}&v=${params.get("v")}`;
 			const respuesta = await axios.post(url, form);
-			setForm({});
-			setMensaje({ respuesta: respuesta.data.msg, tipo: true });
+			setMensaje({ respuesta: respuesta.data.msg, exito: true });
 			setTimeout(() => {
-				navigate("/login");
+				navigate("auth/iniciar-sesion");
 			}, 3000);
 		} catch (error) {
-			setMensaje({ respuesta: error.response.data.msg, tipo: false });
+			setMensaje({ respuesta: error.response.data.msg, exito: false });
 		}
 	};
 
@@ -68,8 +67,8 @@ export default function Reset() {
 						/>
 					</div>
 
-					{mensaje.mensaje && (
-						<Alerta exito={mensaje.exito}>{mensaje.mensaje}</Alerta>
+					{mensaje.respuesta && (
+						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
 					)}
 
 					<div className="flex flex-col items-center gap-y-2">

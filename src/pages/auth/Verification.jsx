@@ -6,11 +6,12 @@ import { CustomButton } from "@components/CustomButton";
 import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Verification() {
 	const [verificationCode, setVerificationCode] = useState("");
 	const [mensaje, setMensaje] = useState({});
+	const navigate = useNavigate();
 
 	const handleVerificationCodeChange = (e) => {
 		setVerificationCode(e.target.value);
@@ -18,18 +19,13 @@ export default function Verification() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (verificationCode.length !== 11) {
-			setMensaje({
-				respuesta: "El código de verificación debe tener 11 dígitos",
-				exito: false,
-			});
-			return;
-		}
 		try {
-			const url = `${import.meta.env.VITE_BACKEND_URL}/chef/recuperarpassword`;
+			const url = `${import.meta.env.VITE_BACKEND_URL}/verificarcodigo`;
 			const respuesta = await axios.post(url, { verificationCode });
 			setMensaje({ respuesta: respuesta.data.msg, exito: true });
-			setVerificationCode("");
+			setTimeout(() => {
+				navigate(`/auth/reestablecer-contraseña?i=${respuesta.data.id}&v=${respuesta.data.verificationCode}`);
+			}, 3000);
 		} catch (error) {
 			setMensaje({ respuesta: error.response.data.msg, exito: false });
 		}

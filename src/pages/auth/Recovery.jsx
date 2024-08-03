@@ -1,20 +1,21 @@
-// Importación de imágenes
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import chefsImg from "@assets/ui/chefs.png";
 import correoIcon from "@assets/icons/correo.svg";
-
+import Alerta from "@components/Alerta";
 import { CustomButton } from "@components/CustomButton";
 
-import { useState } from "react";
-import Alerta from "@components/Alerta";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Recovery() {
 	const [mensaje, setMensaje] = useState({});
-	const [mail, setMail] = useState("");
+	const [email, setEmail] = useState("");
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
-		setMail(e.target.value);
+		setEmail(e.target.value);
 	};
 
 	const handleSubmit = async (e) => {
@@ -22,11 +23,13 @@ export default function Recovery() {
 
 		try {
 			const url = `${import.meta.env.VITE_BACKEND_URL}/chef/recuperarpassword`;
-			const respuesta = await axios.post(url, { email: mail });
-			setMensaje({ respuesta: respuesta.data.msg, tipo: true });
-			setMail("");
+			const respuesta = await axios.post(url, { email });
+			setMensaje({ respuesta: respuesta.data.msg, exito: true });
+			setTimeout(() => {
+				navigate("/auth/codigo-verificacion");
+			}, 3000);
 		} catch (error) {
-			setMensaje({ respuesta: error.response.data.msg, tipo: false });
+			setMensaje({ respuesta: error.response.data.msg, exito: false });
 		}
 	};
 
@@ -51,7 +54,7 @@ export default function Recovery() {
 						<input
 							id="email"
 							name="email"
-							value={mail || ""}
+							value={email || ""}
 							onChange={handleChange}
 							type="email"
 							className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
@@ -60,8 +63,8 @@ export default function Recovery() {
 						/>
 					</div>
 
-					{mensaje.mensaje && (
-						<Alerta exito={mensaje.exito}>{mensaje.mensaje}</Alerta>
+					{mensaje.respuesta && (
+						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
 					)}
 
 					<div className="flex flex-col items-center gap-y-2">

@@ -7,19 +7,20 @@ import fotoPerfil from "@assets/ui/Samuel.png";
 import Alerta from "@components/Alerta";
 import { CustomButton } from "@components/CustomButton";
 import { AuthContext } from "@contexts/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 
-const ActualizarPerfil = () => {
+export default function ActualizarPerfil() {
 	const { auth, uploadPerfil } = useContext(AuthContext);
-	const [message, setMessage] = useState({});
+	const [mensaje, setMensaje] = useState({});
+	const navigate = useNavigate();
 
 	const [form, setForm] = useState({
 		id: auth._id,
-		nombre: auth.nombre || "",
-		apellido: auth.apellido || "",
-		email: auth.email || "",
-		especialidad: auth.especialidad || "",
-		trayectoria: auth.trayectoria || "",
+		nombre: auth.nombre,
+		apellido: auth.apellido,
+		email: auth.email,
+		especialidad: auth.especialidad,
+		trayectoria: auth.trayectoria,
 	});
 
 	const handleChange = (e) => {
@@ -33,21 +34,21 @@ const ActualizarPerfil = () => {
 		e.preventDefault();
 
 		if (Object.values(form).includes("")) {
-			setMessage({
+			setMensaje({
 				respuesta: "Todos los campos deben ser ingresados",
-				tipo: false,
+				exito: false,
 			});
 
 			setTimeout(() => {
-				setMessage({});
-			}, 3000);
+				setMensaje({});
+			}, 5000);
 			return;
 		}
 		const resultado = await uploadPerfil(form);
-		setMessage(resultado);
+		setMensaje(resultado);
 		setTimeout(() => {
-			setMessage({});
-		}, 3000);
+			navigate("/perfil");
+		}, 5000);
 	};
 
 	return (
@@ -60,8 +61,8 @@ const ActualizarPerfil = () => {
 						alt="Foto de Perfil del Chef"
 					/>
 					<img
-						className="absolute inset-0 my-auto"
-						src={fotoPerfil}
+						className="absolute inset-0 my-auto rounded-full"
+						src={auth.foto?.url}
 						alt="Foto de Perfil del Chef"
 					/>
 				</div>
@@ -70,7 +71,7 @@ const ActualizarPerfil = () => {
 					color="black"
 					masEstilos="text-white gap-x-2 rounded-xl mt-4"
 				>
-					<svg  width="25" viewBox="0 0 42 40">
+					<svg width="25" viewBox="0 0 42 40">
 						<path
 							className="fill-white group-hover:fill-black"
 							d="M33.75 11.25h-4.6c-.24 0-.53-.15-.76-.4l-2.03-3.19a3.48 3.48 0 0 0-2.77-1.41h-7.18a3.48 3.48 0 0 0-2.77 1.41l-2.03 3.2c-.17.2-.42.4-.67.4v-.63a1.25 1.25 0 0 0-1.25-1.25H7.8a1.25 1.25 0 0 0-1.25 1.25v.62h-.31A3.75 3.75 0 0 0 2.5 15v15a3.75 3.75 0 0 0 3.75 3.75h27.5A3.75 3.75 0 0 0 37.5 30V15a3.75 3.75 0 0 0-3.75-3.75ZM20 28.75a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
@@ -176,8 +177,8 @@ const ActualizarPerfil = () => {
 							/>
 						</div>
 					</div>
-					{message.mensaje && (
-						<Alerta exito={message.exito}>{message.mensaje}</Alerta>
+					{mensaje.respuesta && (
+						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
 					)}
 
 					<div className="flex sm:flex-row flex-col gap-4">
@@ -213,6 +214,4 @@ const ActualizarPerfil = () => {
 			</div>
 		</section>
 	);
-};
-
-export default ActualizarPerfil;
+}

@@ -3,19 +3,14 @@ import chefsImg from "@assets/ui/chefs.png";
 import usuarioIcon from "@assets/icons/usuario.svg";
 import telefonoIcon from "@assets/icons/telefono.svg";
 import correoIcon from "@assets/icons/correo.svg";
-import contraseñaIcon from "@assets/icons/contraseña.svg";
 import { CustomButton } from "@components/CustomButton";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
 import PasswordInput from "../../components/PasswordInput";
 
 export default function Register() {
-	useEffect(() => {
-		document.title = "Asociación de la ESFOT - Registro del Chef";
-	}, []);
-
 	const [form, setForm] = useState({
 		nombre: "",
 		apellido: "",
@@ -25,7 +20,7 @@ export default function Register() {
 		confirmPassword: "",
 	});
 
-	const [message, setMessage] = useState({});
+	const [mensaje, setMensaje] = useState({});
 
 	const handleChange = (e) => {
 		setForm({
@@ -38,8 +33,8 @@ export default function Register() {
 		e.preventDefault();
 
 		if (form.password !== form.confirmPassword) {
-			setMessage({
-				mensaje: "Las contraseñas no coinciden",
+			setMensaje({
+				respuesta: "Las contraseñas no coinciden",
 				exito: false,
 			});
 			return;
@@ -49,16 +44,16 @@ export default function Register() {
 			.post(`${import.meta.env.VITE_BACKEND_URL}/registro`, form)
 			.then((response) => {
 				console.log(response);
-				setMessage({
-					mensaje:
+				setMensaje({
+					respuesta:
 						"Usuario registrado correctamente, revise su correo electrónico para activar su cuenta",
 					exito: true,
 				});
 			})
 			.catch((error) => {
 				console.log(error);
-				setMessage({
-					mensaje: error.response.data.msg,
+				setMensaje({
+					respuesta: error.response.data.msg,
 					exito: false,
 				});
 			});
@@ -158,8 +153,8 @@ export default function Register() {
 						/>
 					</div>
 
-					{message.mensaje && (
-						<Alerta exito={message.exito}>{message.mensaje}</Alerta>
+					{mensaje.respuesta && (
+						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
 					)}
 
 					<div className="flex flex-col items-center gap-y-2">

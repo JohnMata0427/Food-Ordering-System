@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { AuthProvider } from "@contexts/AuthProvider";
 import AuthLayout from "@layouts/AuthLayout";
@@ -19,26 +19,18 @@ import Contacto from "@pages/Contacto";
 import Verification from "@pages/auth/Verification";
 import Reset from "@pages/auth/Reset";
 
-function App() {
-	const isAuth = localStorage.getItem("token");
-
+export default function App() {
 	return (
 		<>
 			<BrowserRouter>
 				<AuthProvider>
 					<Routes>
-						<Route
-							path="/"
-							element={<Navigate to={isAuth ? "/inicio" : "/auth/registro"} />}
-						/>
-
 						<Route path="auth" element={<AuthLayout />}>
+							<Route index path="iniciar-sesion" element={<Login />} />
 							<Route path="registro" element={<Register />} />
 							<Route path="confirmar-email/:token" element={<ConfirmEmail />} />
 							<Route path="email-confirmado" element={<EmailConfirmed />} />
-							<Route path="iniciar-sesion" element={<Login />} />
 							<Route path="recuperar-contraseña" element={<Recovery />} />
-
 							<Route path="codigo-verificacion" element={<Verification />} />
 							<Route path="reestablecer-contraseña" element={<Reset />} />
 						</Route>
@@ -71,5 +63,3 @@ function App() {
 		</>
 	);
 }
-
-export default App;

@@ -5,8 +5,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const [auth, setAuth] = useState({});
-	const [data, setData] = useState("Initial data...");
-	const token = localStorage.getItem("token");
 
 	const perfil = (token) => {
 		axios
@@ -17,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 				},
 			})
 			.then(({ data }) => {
+				console.log(data);
 				setAuth(data);
 			})
 			.catch(() => {
@@ -25,35 +24,37 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
+		const token = localStorage.getItem("token");
 		if (token) perfil(token);
 	}, []);
 
 	const uploadPerfil = async (datos) => {
+		const token = localStorage.getItem("token");
+
 		if (!token) {
 			return {
 				respuesta: "No se encontró el token de autenticación",
-				tipo: false,
+				exito: false,
 			};
 		}
 		try {
-			const url = `${import.meta.env.VITE_BACKEND_URL}/chef/${datos._id}`;
+			const url = `${import.meta.env.VITE_BACKEND_URL}/chef/${datos.id}`;
 			const options = {
 				headers: {
-					method: "PUT",
 					"Content-Type": "application/json",
 					Authorization: `Bearer ${token}`,
 				},
 			};
 			const respuesta = await axios.put(url, datos, options);
 			perfil(token);
-			return { respuesta: respuesta.data.msg, tipo: true };
+			return { respuesta: respuesta.data.msg, exito: true };
 		} catch (error) {
-			return { respuesta: error.response.data.msg, tipo: false };
+			return { respuesta: error.response.data.msg, exito: false };
 		}
 	};
 
 	return (
-		<AuthContext.Provider value={{ auth, setAuth, data, uploadPerfil }}>
+		<AuthContext.Provider value={{ auth, setAuth, uploadPerfil }}>
 			{children}
 		</AuthContext.Provider>
 	);

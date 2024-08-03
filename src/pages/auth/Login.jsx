@@ -1,24 +1,20 @@
 // Importación de imágenes
 import chefsImg from "@assets/ui/chefs.png";
 import correoIcon from "@icons/correo.svg";
-import contraseñaIcon from "@icons/contraseña.svg";
 import { CustomButton } from "@components/CustomButton";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
-import PasswordInput from "../../components/PasswordInput";
+import PasswordInput from "@components/PasswordInput";
 
 export default function Login() {
-	useEffect(() => {
-		document.title = "Asociación de la ESFOT - Iniciar Sesión";
-	}, []);
 	const navigate = useNavigate();
 	const [form, setForm] = useState({
 		email: "",
 		password: "",
 	});
-	const [message, setMessage] = useState({});
+	const [mensaje, setMensaje] = useState({});
 
 	const handleChange = (e) => {
 		setForm({
@@ -31,17 +27,20 @@ export default function Login() {
 		e.preventDefault();
 		axios
 			.post(`${import.meta.env.VITE_BACKEND_URL}/login`, form)
-			.then((response) => {
-				console.log(response);
-				localStorage.setItem("token", respuesta.data.token);
+			.then(({ data }) => {
+				localStorage.setItem("token", data.token);
+				navigate("/inicio");
+			})
+			.catch(({ response }) => {
+				setMensaje({
+					respuesta: response.data.msg,
+					exito: false,
+				});
+
+				setTimeout(() => {
+					setMensaje({});
+				}, 5000);
 			});
-		navigate("/dashboard").catch((error) => {
-			console.log(error);
-			setMessage({
-				mensaje: error.response.data.msg,
-				exito: false,
-			});
-		});
 	};
 
 	return (
@@ -77,7 +76,7 @@ export default function Login() {
 
 						<PasswordInput value={form.password} onChange={handleChange} />
 					</div>
-					<span className="text-sm text-center mt-3 mb-7">
+					<span className="text-sm text-center my-3">
 						¿Olvidaste tu contraseña?{" "}
 						<Link
 							className="font-bold text-secondary hover:text-secondary/80 "
@@ -87,10 +86,11 @@ export default function Login() {
 						</Link>
 					</span>
 
-					{message.mensaje && (
-						<Alerta exito={message.exito}>{message.mensaje}</Alerta>
+					{mensaje.respuesta && (
+						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
 					)}
-					<div className="flex flex-col items-center gap-y-4">
+
+					<div className="flex flex-col items-center gap-y-4 mt-3">
 						<CustomButton
 							texto="Ingresar"
 							color="yellow"

@@ -5,7 +5,10 @@ import { Navigate } from "react-router-dom";
 export const PrivateRoute = ({ children }) => {
 	const { auth } = useContext(AuthContext);
 
-    console.log(auth);
+    if (!auth._id) {
+        // Puedes mostrar un spinner o algún tipo de indicador de carga aquí
+        return <div>Loading...</div>;
+    }
 
-    return auth.nombre ? children : <Navigate to="/auth/iniciar-sesion" />;
+    return auth._id ? children : <Navigate to="/auth/iniciar-sesion" />;
 };

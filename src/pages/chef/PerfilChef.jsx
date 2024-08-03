@@ -1,9 +1,13 @@
 import fondoPerfil from "@assets/ui/fondo-perfil.png";
 import fotoPerfil from "@assets/ui/Samuel.png";
 import { CustomButton } from "@components/CustomButton";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 export default function PerfilChef() {
+	const { auth } = useContext(AuthContext);
+
 	return (
 		<section className="flex sm:flex-row flex-col justify-center m-8 gap-x-8">
 			<div className="sm:h-[550px] relative">
@@ -13,38 +17,27 @@ export default function PerfilChef() {
 					alt="Foto de Perfil del Chef"
 				/>
 				<img
-					className="absolute inset-0 my-auto"
-					src={fotoPerfil}
+					className="absolute inset-0 my-auto rounded-full"
+					src={auth.foto?.url}
 					alt="Foto de Perfil del Chef"
 				/>
 			</div>
 
 			<div className="flex flex-col justify-center items-center sm:w-3/5 w-full pl-6">
-				<h1 className="text-7xl font-semibold mt-2 mb-7">Li Chang</h1>
+				<h1 className="text-7xl font-semibold mt-2 mb-7">
+					{auth.nombre + " " + auth.apellido}
+				</h1>
 
 				<div className="flex flex-col gap-y-8 items-center w-9/10">
 					<div className="flex flex-col gap-y-4 w-full">
-						<p>
-							Chef Li Wei, nacido en Chengdu, es un maestro de la cocina china
-							con más de 20 años de experiencia. Con formación en la Academia
-							Culinaria de Beijing, ha trabajado en restaurantes prestigiosos en
-							Beijing, Shanghai, Guangzhou y Hong Kong. Conocido por su dominio
-							del Pato laqueado de Beijing y su habilidad en dim sum cantoneses,
-							Li Wei combina técnicas tradicionales con innovaciones modernas,
-							creando platos de fusión únicos. Actualmente, es el chef ejecutivo
-							del aclamado restaurante "Dragón Imperial" en Shanghai, donde
-							continúa deleitando a sus comensales con su pasión y creatividad
-							culinaria.
-						</p>
+						<p>{auth.trayectoria}</p>
 
 						<h3 className="text-2xl font-semibold font-aoboshi my-2">
 							Especialidades
 						</h3>
 
 						<ul>
-							<li>🍴 Dumplings de cerdo al vapor</li>
-							<li>🍴 Baozi relleno de cerdo BBQ </li>
-							<li>🍴 Siu Mai (dumplings abiertos de cerdo y camarón)</li>
+							🍴 {auth.especialidad}
 						</ul>
 					</div>
 				</div>
