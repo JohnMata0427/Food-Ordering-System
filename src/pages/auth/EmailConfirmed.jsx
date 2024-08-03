@@ -25,7 +25,7 @@ export default function ConfirmEmail() {
                             color="black"
                             masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2 text-white"
                         >
-                            <svg className="z-10" width="20" height="20" viewBox="0 0 40 40">
+                            <svg  width="20" height="20" viewBox="0 0 40 40">
                                 <path
                                     className="fill-white group-hover:fill-[#000]"
                                     id="Vector"

@@ -4,24 +4,22 @@ export default function Header() {
 
 	const urlActual = useLocation().pathname
 
-	console.log(urlActual)
-
 	return (
 		<header className="flex justify-between items-center w-full bg-black border-b-4 border-b-red-700 py-2 px-4">
 			<nav className="flex items-center gap-x-16">
 				<img className="w-auto h-12" src="logo-con-texto.png" alt="Logo" />
 				<ul className="flex gap-x-8">
 					<li>
-						<Link className={`${urlActual === '/inicio' ? 'text-amber-500' : 'text-white'} hover:text-amber-500`} to="/inicio">Inicio</Link>
+						<Link className={`${urlActual === '/inicio' ? 'text-[#dcb50e]' : 'text-white'} hover:text-[#dcb50e]`} to="/inicio">Inicio</Link>
 					</li>
 					<li>
-						<Link className={`${urlActual === '/categorias' ? 'text-amber-500' : 'text-white'} hover:text-amber-500`} to="/categorias">Categorias</Link>
+						<Link className={`${urlActual === '/categorias' ? 'text-[#dcb50e]' : 'text-white'} hover:text-[#dcb50e]`} to="/categorias">Categorias</Link>
 					</li>
 					<li>
-						<Link className={`${urlActual === '/ordenar' ? 'text-amber-500' : 'text-white'} hover:text-amber-500`} to="/ordenar">Ordenar</Link>
+						<Link className={`${urlActual === '/ordenar' ? 'text-[#dcb50e]' : 'text-white'} hover:text-[#dcb50e]`} to="/ordenar">Ordenar</Link>
 					</li>
 					<li>
-						<Link className={`${urlActual === '/contacto' ? 'text-amber-500' : 'text-white'} hover:text-amber-500`} to="/contacto">Contacto</Link>
+						<Link className={`${urlActual === '/contacto' ? 'text-[#dcb50e]' : 'text-white'} hover:text-[#dcb50e]`} to="/contacto">Contacto</Link>
 					</li>
 				</ul>
 			</nav>
@@ -43,14 +41,14 @@ export default function Header() {
 						/>
 					</svg>
 				</div>
-				<Link className={`${urlActual === '/perfil' ? 'text-amber-500 *:fill-amber-500' : 'text-white *:fill-white'} group hover:text-amber-500 flex items-center gap-x-2 p-2`} to="/perfil">
+				<Link className={`${urlActual === '/perfil' ? 'text-[#dcb50e] *:fill-[#dcb50e]' : 'text-white *:fill-white'} group hover:text-[#dcb50e] flex items-center gap-x-2 p-2`} to="/perfil">
 					<svg className="size-7" viewBox="0 0 50 50">
 						<path
-							className="group-hover:fill-amber-500"
+							className="group-hover:fill-[#dcb50e]"
 							d="M24.97 4.69A20.03 20.03 0 0 0 4.69 24.97 20.06 20.06 0 0 0 24.4 44.69 20.02 20.02 0 0 0 44.68 24.4 20.05 20.05 0 0 0 24.97 4.69Zm12.15 31.46a.38.38 0 0 1-.59-.03 11.95 11.95 0 0 0-3.11-2.84 16.33 16.33 0 0 0-8.73-2.44c-3.19 0-6.29.87-8.74 2.44-1.2.75-2.25 1.72-3.1 2.84a.38.38 0 0 1-.6.03 16.86 16.86 0 0 1-4.49-11.17A17.03 17.03 0 0 1 24.65 7.76a16.93 16.93 0 0 1 12.47 28.4Z"
 						/>
 						<path
-							className="group-hover:fill-amber-500"
+							className="group-hover:fill-[#dcb50e]"
 							d="M25 14.06c-1.93 0-3.67.72-4.9 2.04a6.62 6.62 0 0 0-1.72 5.07c.28 3.83 3.25 6.95 6.62 6.95s6.33-3.12 6.62-6.95a6.56 6.56 0 0 0-1.73-5.06A6.63 6.63 0 0 0 25 14.06Z"
 						/>
 					</svg>

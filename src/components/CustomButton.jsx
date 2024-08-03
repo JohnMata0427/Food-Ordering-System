@@ -23,6 +23,11 @@ export function CustomButton({
 			"group-hover:text-white focus:text-white",
 			"group-hover:fill-white",
 		],
+		red: [
+			"bg-red-700 border-red-700",
+			"group-hover:text-red-700 focus:text-red-700",
+			"group-hover:fill-red-700",
+		],
 	};
 
 	const variantsHoverColor = {

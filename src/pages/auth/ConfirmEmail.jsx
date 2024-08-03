@@ -31,7 +31,7 @@ export default function ConfirmEmail() {
                     CONFIRMAR DIRECCIÓN DE CORREO ELECTRÓNICO
                 </h1>
                 <div className="flex flex-col items-center gap-y-4 mb-6">
-                    <h2 className="bg-[#DCB50E] border-[#DCB50E] text-base relative inline-flex items-center justify-center h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10 ease-in-out outline-0">
+                    <h2 className="bg-[#DCB50E] border-[#DCB50E] text-base relative inline-flex items-center justify-center h-11 border-2 border-solid py-0 px-6 rounded-md overflow-hidden  ease-in-out outline-0">
                         alan.rios.hd@gmail.com
                     </h2>
                 </div>
@@ -45,7 +45,7 @@ export default function ConfirmEmail() {
                         masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
                         onClick={verifyToken}
                     >
-                        <svg className="z-10" width="20" viewBox="0 0 33 31">
+                        <svg  width="20" viewBox="0 0 33 31">
                             <path
                                 className="fill-black group-hover:fill-[#DCB50E]"
                                 id="Vector"

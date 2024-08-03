@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
+import PasswordInput from "../../components/PasswordInput";
 
 export default function Register() {
 	useEffect(() => {
@@ -21,6 +22,7 @@ export default function Register() {
 		telefono: "",
 		email: "",
 		password: "",
+		confirmPassword: "",
 	});
 
 	const [message, setMessage] = useState({});
@@ -34,6 +36,15 @@ export default function Register() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		if (form.password !== form.confirmPassword) {
+			setMessage({
+				mensaje: "Las contraseñas no coinciden",
+				exito: false,
+			});
+			return;
+		}
+
 		axios
 			.post(`${import.meta.env.VITE_BACKEND_URL}/registro`, form)
 			.then((response) => {
@@ -138,41 +149,13 @@ export default function Register() {
 							/>
 						</div>
 
-						<div className="relative">
-							<img
-								className="absolute inset-y-0 my-auto left-4 size-4"
-								src={contraseñaIcon}
-								alt="Icono de contraseña"
-							/>
-							<input
-								id="password"
-								name="password"
-								value={form.password || ""}
-								onChange={handleChange}
-								type="password"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
-								placeholder="Ingrese una contraseña"
-								required
-							/>
-						</div>
-
-						<div className="relative">
-							<img
-								className="absolute inset-y-0 my-auto left-4 size-4"
-								src={contraseñaIcon}
-								alt="Icono de contraseña"
-							/>
-							<input
-								id="confirmarpassword"
-								name="confirmarpassword"
-								value={form.confirmarpassword || ""}
-								onChange={handleChange}
-								type="password"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
-								placeholder="Repita su contraseña"
-								required
-							/>
-						</div>
+						<PasswordInput value={form.password} onChange={handleChange} />
+						<PasswordInput
+							value={form.confirmPassword}
+							onChange={handleChange}
+							placeholder="Confirme su contraseña"
+							name="confirmPassword"
+						/>
 					</div>
 
 					{message.mensaje && (
@@ -185,7 +168,7 @@ export default function Register() {
 							color="yellow"
 							masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
 						>
-							<svg className="z-10" width="20" viewBox="0 0 33 31">
+							<svg width="20" viewBox="0 0 33 31">
 								<path
 									className="fill-black group-hover:fill-[#DCB50E]"
 									id="Vector"

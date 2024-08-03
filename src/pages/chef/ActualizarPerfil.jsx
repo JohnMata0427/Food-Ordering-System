@@ -1,17 +1,13 @@
-import React, { useContext, useRef } from "react";
-import ChefPerfil from "@assets/ui/ChefPerfil.png";
-import chefsImg from "@assets/ui/chefs.png";
+import { useContext, useState } from "react";
 import usuarioIcon from "@assets/icons/usuario.svg";
-import telefonoIcon from "@assets/icons/telefono.svg";
 import correoIcon from "@assets/icons/correo.svg";
-import contraseñaIcon from "@assets/icons/contraseña.svg";
-import { CustomButton } from "@components/CustomButton";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Alerta from "@components/Alerta";
-import axios from "axios";
 import documentoIcon from "@assets/icons/documento.svg";
-import { AuthContext } from "../../contexts/AuthProvider";
+import fondoPerfil from "@assets/ui/fondo-perfil.png";
+import fotoPerfil from "@assets/ui/Samuel.png";
+import Alerta from "@components/Alerta";
+import { CustomButton } from "@components/CustomButton";
+import { AuthContext } from "@contexts/AuthProvider";
+import { Link } from "react-router-dom";
 
 const ActualizarPerfil = () => {
 	const { auth, uploadPerfil } = useContext(AuthContext);
@@ -20,6 +16,7 @@ const ActualizarPerfil = () => {
 	const [form, setForm] = useState({
 		id: auth._id,
 		nombre: auth.nombre || "",
+		apellido: auth.apellido || "",
 		email: auth.email || "",
 		especialidad: auth.especialidad || "",
 		trayectoria: auth.trayectoria || "",
@@ -54,41 +51,47 @@ const ActualizarPerfil = () => {
 	};
 
 	return (
-		<div className="flex justify-center my-4">
-			<div>
-				<img
-					src={ChefPerfil}
-					alt="ChefPerfil"
-					className="w-full h-auto max-h-[calc(100vh-7rem)] object-contain"
-				/>
+		<section className="flex sm:flex-row flex-col justify-center items-start m-8 gap-x-8">
+			<div className="flex flex-col justify-center">
+				<div className="sm:h-[550px] relative">
+					<img
+						className="sm:h-full"
+						src={fondoPerfil}
+						alt="Foto de Perfil del Chef"
+					/>
+					<img
+						className="absolute inset-0 my-auto"
+						src={fotoPerfil}
+						alt="Foto de Perfil del Chef"
+					/>
+				</div>
 				<CustomButton
 					texto="Actualizar Foto"
 					color="black"
-					masEstilos="text-white w-full gap-x-2 rounded-xl mt-4"
+					masEstilos="text-white gap-x-2 rounded-xl mt-4"
 				>
-					<svg className="z-10" width="20" viewBox="0 0 42 40">
+					<svg  width="25" viewBox="0 0 42 40">
 						<path
 							className="fill-white group-hover:fill-black"
-							d="M33.75 11.25H29.1406C28.9062 11.25 28.6156 11.0984 28.3891 10.8594L26.3625 7.66094C26.3305 7.61018 26.2947 7.56187 26.2555 7.51641C25.5555 6.7 24.6094 6.25 23.5938 6.25H16.4062C15.3906 6.25 14.4445 6.7 13.7445 7.51641C13.7053 7.56187 13.6695 7.61018 13.6375 7.66094L11.6109 10.8641C11.4375 11.0531 11.1938 11.2547 10.9375 11.2547V10.6297C10.9375 10.2982 10.8058 9.98022 10.5714 9.7458C10.337 9.51138 10.019 9.37969 9.6875 9.37969H7.8125C7.48098 9.37969 7.16304 9.51138 6.92862 9.7458C6.6942 9.98022 6.5625 10.2982 6.5625 10.6297V11.2547H6.25C5.25576 11.2557 4.30253 11.6511 3.59949 12.3542C2.89645 13.0572 2.50103 14.0104 2.5 15.0047V30C2.50103 30.9942 2.89645 31.9475 3.59949 32.6505C4.30253 33.3535 5.25576 33.749 6.25 33.75H33.75C34.7442 33.749 35.6975 33.3535 36.4005 32.6505C37.1035 31.9475 37.499 30.9942 37.5 30V15C37.499 14.0058 37.1035 13.0525 36.4005 12.3495C35.6975 11.6465 34.7442 11.251 33.75 11.25ZM20 28.75C18.5166 28.75 17.0666 28.3101 15.8332 27.486C14.5999 26.6619 13.6386 25.4906 13.0709 24.1201C12.5032 22.7497 12.3547 21.2417 12.6441 19.7868C12.9335 18.332 13.6478 16.9956 14.6967 15.9467C15.7456 14.8978 17.082 14.1835 18.5368 13.8941C19.9917 13.6047 21.4997 13.7532 22.8701 14.3209C24.2406 14.8886 25.4119 15.8499 26.236 17.0832C27.0601 18.3166 27.5 19.7666 27.5 21.25C27.4977 23.2384 26.7068 25.1448 25.3008 26.5508C23.8948 27.9568 21.9884 28.7477 20 28.75Z"
-							fill="white"
+							d="M33.75 11.25h-4.6c-.24 0-.53-.15-.76-.4l-2.03-3.19a3.48 3.48 0 0 0-2.77-1.41h-7.18a3.48 3.48 0 0 0-2.77 1.41l-2.03 3.2c-.17.2-.42.4-.67.4v-.63a1.25 1.25 0 0 0-1.25-1.25H7.8a1.25 1.25 0 0 0-1.25 1.25v.62h-.31A3.75 3.75 0 0 0 2.5 15v15a3.75 3.75 0 0 0 3.75 3.75h27.5A3.75 3.75 0 0 0 37.5 30V15a3.75 3.75 0 0 0-3.75-3.75ZM20 28.75a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
 						/>
 					</svg>
 				</CustomButton>
 			</div>
 
-			<div className="flex flex-col justify-center  sm:w-1/2 w-full py-4 pl-6">
-				<h1 className="text-2xl font-semibold mb-2 font-aoboshi pt-2 pb-5">
+			<div className="flex flex-col justify-center sm:w-3/5 w-full sm:pl-6">
+				<h1 className="text-2xl font-semibold mt-4 mb-7 sm:text-start text-center">
 					Editar Perfil
 				</h1>
 
 				<form
-					className="flex flex-col gap-y-8 items-center sm:w-[95%] w-3/4"
+					className="flex flex-col gap-y-8 items-center w-full"
 					onSubmit={handleSubmit}
 				>
 					<div className="flex flex-col gap-y-4 w-full">
 						<div className="relative">
 							<img
-								className="absolute top-[9px] left-3 size-4"
+								className="absolute inset-y-0 my-auto left-4 size-4"
 								src={usuarioIcon}
 								alt="Icono de usuario"
 							/>
@@ -96,16 +99,35 @@ const ActualizarPerfil = () => {
 								id="nombre"
 								type="text"
 								name="nombre"
-								className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
-								placeholder="Nombre"
-								value={form.nombre}
+								value={form.nombre || ""}
 								onChange={handleChange}
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								placeholder="Nombre"
+								required
 							/>
 						</div>
 
 						<div className="relative">
 							<img
-								className="absolute top-[9px] left-3 size-4"
+								className="absolute inset-y-0 my-auto left-4 size-4"
+								src={usuarioIcon}
+								alt="Icono de usuario"
+							/>
+							<input
+								id="apellido"
+								type="text"
+								name="apellido"
+								value={form.apellido || ""}
+								onChange={handleChange}
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								placeholder="Apellido"
+								required
+							/>
+						</div>
+
+						<div className="relative">
+							<img
+								className="absolute inset-y-0 my-auto left-4 size-4"
 								src={correoIcon}
 								alt="Icono de correo"
 							/>
@@ -113,7 +135,7 @@ const ActualizarPerfil = () => {
 								id="email"
 								name="email"
 								type="email"
-								className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
 								placeholder="Correo Electrónico"
 								value={form.email}
 								onChange={handleChange}
@@ -122,7 +144,7 @@ const ActualizarPerfil = () => {
 
 						<div className="relative">
 							<img
-								className="absolute top-[9px] left-3 size-4"
+								className="absolute inset-y-0 my-auto left-4 size-4"
 								src={usuarioIcon}
 								alt="Icono de contraseña"
 							/>
@@ -130,7 +152,7 @@ const ActualizarPerfil = () => {
 								id="especialidad"
 								name="especialidad"
 								type="text"
-								className="border border-black placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
 								placeholder="Especialidad"
 								value={form.especialidad}
 								onChange={handleChange}
@@ -139,7 +161,7 @@ const ActualizarPerfil = () => {
 
 						<div className="relative">
 							<img
-								className="absolute top-[9px] left-3 size-4"
+								className="absolute top-3 my-auto left-3 size-5"
 								src={documentoIcon}
 								alt="Icono de contraseña"
 							/>
@@ -147,7 +169,7 @@ const ActualizarPerfil = () => {
 								id="trayectoria"
 								name="trayectoria"
 								type="text"
-								className="border border-black h-32 placeholder-slate-700 text-md p-1 rounded-xl pl-9 w-full hover:border-slate-800 transition-all shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md h-40 max-h-40 p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
 								placeholder="Trayectoria"
 								value={form.trayectoria}
 								onChange={handleChange}
@@ -158,13 +180,13 @@ const ActualizarPerfil = () => {
 						<Alerta exito={message.exito}>{message.mensaje}</Alerta>
 					)}
 
-					<div className="flex flex-col items-center gap-y-2">
+					<div className="flex sm:flex-row flex-col gap-4">
 						<CustomButton
 							texto="Guardar Cambios"
 							color="yellow"
-							masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
+							masEstilos="group w-full justify-center gap-x-2 rounded-xl"
 						>
-							<svg className="z-10" width="20" viewBox="0 0 33 40">
+							<svg width="18" viewBox="0 0 33 40">
 								<path
 									className="fill-black group-hover:fill-[#DCB50E]"
 									id="Vector"
@@ -172,10 +194,24 @@ const ActualizarPerfil = () => {
 								/>
 							</svg>
 						</CustomButton>
+						<Link to="/perfil">
+							<CustomButton
+								color="red"
+								texto="Cancelar"
+								masEstilos="text-white w-full justify-center gap-x-2 rounded-xl"
+							>
+								<svg className="size-5" width="40" viewBox="0 0 30 30">
+									<path
+										className="fill-white group-hover:fill-red-700"
+										d="M15 0C6.73 0 0 6.73 0 15s6.73 15 15 15 15-6.73 15-15S23.27 0 15 0Zm5.43 18.8a1.15 1.15 0 1 1-1.63 1.63l-3.8-3.8-3.8 3.8a1.15 1.15 0 0 1-1.63-1.63l3.8-3.8-3.8-3.8a1.15 1.15 0 0 1 1.63-1.63l3.8 3.8 3.8-3.8a1.15 1.15 0 0 1 1.63 1.63l-3.8 3.8 3.8 3.8Z"
+									/>
+								</svg>
+							</CustomButton>
+						</Link>
 					</div>
 				</form>
 			</div>
-		</div>
+		</section>
 	);
 };
 

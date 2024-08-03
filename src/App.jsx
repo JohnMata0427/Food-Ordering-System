@@ -1,19 +1,23 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import { AuthProvider } from "@contexts/AuthProvider";
+import AuthLayout from "@layouts/AuthLayout";
+import UserLayout from "@layouts/UserLayout";
+
 import Register from "@pages/auth/Register";
 import NotFound from "@pages/404";
 import Home from "@pages/Home";
-
-import AuthLayout from "./layouts/AuthLayout";
-import { AuthProvider } from "@contexts/AuthProvider";
-// import Reset from "./pages/auth/Verification";
-// import Verification from "./pages/auth/Verification";
-import Recovery from "./pages/auth/Recovery";
-import Login from "./pages/auth/Login";
-import ConfirmEmail from "./pages/auth/ConfirmEmail";
-import EmailConfirmed from "./pages/auth/EmailConfirmed";
-import ActualizarPerfil from "./pages/chef/ActualizarPerfil";
-import PerfilChef from "./pages/chef/PerfilChef";
-import UserLayout from "./layouts/UserLayout";
+import Recovery from "@pages/auth/Recovery";
+import Login from "@pages/auth/Login";
+import ConfirmEmail from "@pages/auth/ConfirmEmail";
+import EmailConfirmed from "@pages/auth/EmailConfirmed";
+import ActualizarPerfil from "@pages/chef/ActualizarPerfil";
+import PerfilChef from "@pages/chef/PerfilChef";
+import Categorias from "@pages/Categorias";
+import Ordenar from "@pages/Ordenar";
+import Contacto from "@pages/Contacto";
+import Verification from "@pages/auth/Verification";
+import Reset from "@pages/auth/Reset";
 
 function App() {
 	const isAuth = localStorage.getItem("token");
@@ -35,15 +39,30 @@ function App() {
 							<Route path="iniciar-sesion" element={<Login />} />
 							<Route path="recuperar-contraseña" element={<Recovery />} />
 
-							{/*<Route path="codigo-verificacion" element={<Verification />} />
-							<Route path="restablecer-contraseña" element={<Reset />} /> */}
+							<Route path="codigo-verificacion" element={<Verification />} />
+							<Route path="reestablecer-contraseña" element={<Reset />} />
 						</Route>
 
-						<Route path="/" element={<UserLayout />}>
-							<Route index path="inicio" element={<Home />} />
-							<Route path="actualizar-perfil" element={<ActualizarPerfil />} />
-							<Route path="perfil" element={<PerfilChef />} />
-						</Route>
+						<Route
+							path="/*"
+							element={
+								<PrivateRoute>
+									<Routes>
+										<Route element={<UserLayout />}>
+											<Route index path="inicio" element={<Home />} />
+											<Route path="categorias" element={<Categorias />} />
+											<Route path="ordenar" element={<Ordenar />} />
+											<Route path="contacto" element={<Contacto />} />
+											<Route
+												path="actualizar-perfil"
+												element={<ActualizarPerfil />}
+											/>
+											<Route path="perfil" element={<PerfilChef />} />
+										</Route>
+									</Routes>
+								</PrivateRoute>
+							}
+						/>
 
 						<Route path="*" element={<NotFound />} />
 					</Routes>

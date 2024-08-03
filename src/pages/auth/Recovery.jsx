@@ -7,6 +7,7 @@ import { CustomButton } from "@components/CustomButton";
 import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Recovery() {
 	const [mensaje, setMensaje] = useState({});
@@ -31,9 +32,9 @@ export default function Recovery() {
 
 	return (
 		<>
-			<div className="flex flex-col justify-center items-center sm:w-1/2 w-full py-4">
+			<div className="flex flex-col justify-center items-center sm:w-2/5 w-full py-4">
 				<img className="h-40" src={chefsImg} alt="Icono de Chefs" />
-				<h1 className="text-2xl font-semibold mb-2 text-center uppercase pt-2 pb-5">
+				<h1 className="text-2xl font-semibold text-center uppercase mt-2 mb-7">
 					Recuperar Contraseña
 				</h1>
 
@@ -41,24 +42,22 @@ export default function Recovery() {
 					className="flex flex-col gap-y-8 items-center sm:w-[65%] w-3/4"
 					onSubmit={handleSubmit}
 				>
-					<div className="flex flex-col gap-y-4 w-full">
-						<div className="relative">
-							<img
-								className="absolute inset-y-0 my-auto left-4 size-4"
-								src={correoIcon}
-								alt="Icono de correo"
-							/>
-							<input
-								id="email"
-								name="email"
-								value={mail || ""}
-								onChange={handleChange}
-								type="email"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
-								placeholder="Ingrese su correo electrónico"
-								required
-							/>
-						</div>
+					<div className="relative w-full">
+						<img
+							className="absolute inset-y-0 my-auto left-4 size-4"
+							src={correoIcon}
+							alt="Icono de correo"
+						/>
+						<input
+							id="email"
+							name="email"
+							value={mail || ""}
+							onChange={handleChange}
+							type="email"
+							className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+							placeholder="Ingrese su correo electrónico"
+							required
+						/>
 					</div>
 
 					{mensaje.mensaje && (
@@ -71,7 +70,7 @@ export default function Recovery() {
 							color="yellow"
 							masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
 						>
-							<svg className="z-10" width="20" viewBox="0 0 33 31">
+							<svg width="20" viewBox="0 0 33 31">
 								<path
 									className="fill-black group-hover:fill-[#DCB50E]"
 									id="Vector"
@@ -107,6 +106,24 @@ export default function Recovery() {
 								</g>
 							</svg>
 						</CustomButton>
+						<span className="text-sm">
+							¿Tienes una cuenta?{" "}
+							<Link
+								className="font-bold text-secondary hover:text-secondary/80 "
+								to="/auth/iniciar-sesion"
+							>
+								Inicia sesión
+							</Link>
+						</span>
+						<span className="text-sm">
+							¿No tienes cuenta?{" "}
+							<Link
+								className="font-bold text-secondary hover:text-secondary/80 "
+								to="/auth/registro"
+							>
+								Registrate
+							</Link>
+						</span>
 					</div>
 				</form>
 			</div>

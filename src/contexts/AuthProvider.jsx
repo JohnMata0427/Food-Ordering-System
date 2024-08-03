@@ -5,7 +5,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const [auth, setAuth] = useState({});
-    const [data, setData] = useState('Initial data...');
+	const [data, setData] = useState("Initial data...");
+	const token = localStorage.getItem("token");
 
 	const perfil = (token) => {
 		axios
@@ -15,47 +16,41 @@ export const AuthProvider = ({ children }) => {
 					Authorization: `Bearer ${token}`,
 				},
 			})
-			.then((response) => {
-				setAuth(response.data);
+			.then(({ data }) => {
+				setAuth(data);
 			})
-			.catch((error) => {
-				console.log(error);
+			.catch(() => {
+				localStorage.removeItem("token");
 			});
 	};
 
 	useEffect(() => {
-		const token = localStorage.getItem("token");
-		if (token) {
-			perfil(token);
-		}
+		if (token) perfil(token);
 	}, []);
 
-
-	const uploadPerfil = async(datos) => {
-        const token = localStorage.getItem('token')
-
-		
+	const uploadPerfil = async (datos) => {
 		if (!token) {
-			
-			return { respuesta: 'No se encontró el token de autenticación', tipo: false };
+			return {
+				respuesta: "No se encontró el token de autenticación",
+				tipo: false,
+			};
 		}
-        try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/chef/${datos._id}`
-            const options = {
-                headers: {
-                    method: 'PUT',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            }
-            const respuesta = await axios.put(url, datos, options)
-            perfil(token)
-            return {respuesta:respuesta.data.msg,tipo:true}
-        } catch (error) {
-            return {respuesta:error.response.data.msg,tipo:false}
-        }
-}
-
+		try {
+			const url = `${import.meta.env.VITE_BACKEND_URL}/chef/${datos._id}`;
+			const options = {
+				headers: {
+					method: "PUT",
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			};
+			const respuesta = await axios.put(url, datos, options);
+			perfil(token);
+			return { respuesta: respuesta.data.msg, tipo: true };
+		} catch (error) {
+			return { respuesta: error.response.data.msg, tipo: false };
+		}
+	};
 
 	return (
 		<AuthContext.Provider value={{ auth, setAuth, data, uploadPerfil }}>
@@ -65,4 +60,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export { AuthContext };
-
