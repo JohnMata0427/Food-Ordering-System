@@ -38,7 +38,7 @@ export default function Contacto() {
 
 			<section className="flex justify-center gap-x-10 items-center mt-20">
 				<form
-					className="flex flex-col gap-y-8 items-center w-1/2 bg-slate-200 p-4 rounded-xl shadow-black/30 shadow-md"
+					className="flex flex-col gap-y-8 items-center w-1/2 bg-neutral-200 p-4 rounded-xl shadow-black/30 shadow-md"
 					onSubmit={handleSubmit}
 				>
 					<h1 className="text-2xl font-bold uppercase">Contacto</h1>
@@ -55,7 +55,7 @@ export default function Contacto() {
 								name="nombre"
 								value={form.nombre || ""}
 								onChange={handleChange}
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800"
 								placeholder="Ingrese su nombre"
 								required
 							/>
@@ -73,7 +73,7 @@ export default function Contacto() {
 								value={form.email || ""}
 								onChange={handleChange}
 								type="email"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800"
 								placeholder="Ingrese su correo electrónico"
 								required
 							/>
@@ -91,7 +91,7 @@ export default function Contacto() {
 								value={form.asunto || ""}
 								onChange={handleChange}
 								type="text"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800"
 								placeholder="Asunto"
 								required
 							/>
@@ -99,7 +99,7 @@ export default function Contacto() {
 
 						<div className="relative">
 							<img
-								className="absolute inset-y-0 my-auto left-4 size-4"
+								className="absolute top-4 left-4 size-4"
 								src={mensajeIcon}
 								alt="Icono de mensaje"
 							/>
@@ -109,7 +109,7 @@ export default function Contacto() {
 								value={form.mensaje || ""}
 								onChange={handleChange}
 								type="text"
-								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800  shadow-md shadow-black/20"
+								className="border border-black placeholder-slate-700 text-md p-2.5 rounded-xl pl-11 w-full hover:border-slate-800"
 								placeholder="Mensaje"
 								required
 							/>
@@ -139,7 +139,7 @@ export default function Contacto() {
 						</CustomButton>
 					</div>
 				</form>
-				<div className="w-1/4 bg-slate-200 p-4 rounded-xl shadow-md shadow-black/30">
+				<div className="w-1/4 bg-neutral-200 p-4 rounded-xl shadow-md shadow-black/30">
 					<h2 className="font-bold">Dirección</h2>
 					<span>
 						Asociación de la Facultad de la Escuela de Formación de

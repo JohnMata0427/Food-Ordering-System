@@ -23,6 +23,7 @@ import Verification from "@pages/auth/Verification";
 import Reset from "@pages/auth/Reset";
 import Historial from "@pages/student/Historial";
 import DetallePedido from "@pages/student/DetallePedido";
+import DescripcionProducto from "./pages/DescripcionProducto";
 
 export default function App() {
 	return (
@@ -97,6 +98,10 @@ export default function App() {
 											<Route
 												path="ordenar"
 												element={<Ordenar />}
+											/>
+											<Route
+												path="producto/:id"
+												element={<DescripcionProducto />}
 											/>
 											<Route
 												path="contacto"
