@@ -13,6 +13,7 @@ export default function ActualizarPerfil() {
 	const { auth, uploadPerfil } = useContext(AuthContext);
 	const [mensaje, setMensaje] = useState({});
 	const navigate = useNavigate();
+	
 
 	const [form, setForm] = useState({
 		id: auth._id,
