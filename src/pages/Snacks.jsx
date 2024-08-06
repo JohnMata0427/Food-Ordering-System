@@ -41,9 +41,11 @@ export default function Snacks() {
 					}}
 				>
 					{snacks.map((snack) => (
-						<div className="flex justify-center items-center">
+						<div
+							key={snack._id}
+							className="flex justify-center items-center"
+						>
 							<Product
-								key={snack._id}
 								nombre={snack.nombre}
 								descripcion={snack.descripcion}
 								precio={snack.precio}

@@ -7,7 +7,7 @@ import fotoPerfil from "@assets/ui/Samuel.png";
 import Alerta from "@components/Alerta";
 import { CustomButton } from "@components/CustomButton";
 import { AuthContext } from "@contexts/AuthProvider";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ActualizarPerfil() {
 	const { auth, uploadPerfil } = useContext(AuthContext);
@@ -61,7 +61,7 @@ export default function ActualizarPerfil() {
 						alt="Foto de Perfil del Chef"
 					/>
 					<img
-						className="absolute inset-0 my-auto rounded-full"
+						className="absolute inset-0 my-auto rounded-full border-2 border-[#d84012]"
 						src={auth.foto?.url}
 						alt="Foto de Perfil del Chef"
 					/>
@@ -178,7 +178,9 @@ export default function ActualizarPerfil() {
 						</div>
 					</div>
 					{mensaje.respuesta && (
-						<Alerta exito={mensaje.exito}>{mensaje.respuesta}</Alerta>
+						<Alerta exito={mensaje.exito}>
+							{mensaje.respuesta}
+						</Alerta>
 					)}
 
 					<div className="flex sm:flex-row flex-col gap-4">
@@ -201,7 +203,11 @@ export default function ActualizarPerfil() {
 								texto="Cancelar"
 								masEstilos="text-white w-full justify-center gap-x-2 rounded-xl"
 							>
-								<svg className="size-5" width="40" viewBox="0 0 30 30">
+								<svg
+									className="size-5"
+									width="40"
+									viewBox="0 0 30 30"
+								>
 									<path
 										className="fill-white group-hover:fill-red-700"
 										d="M15 0C6.73 0 0 6.73 0 15s6.73 15 15 15 15-6.73 15-15S23.27 0 15 0Zm5.43 18.8a1.15 1.15 0 1 1-1.63 1.63l-3.8-3.8-3.8 3.8a1.15 1.15 0 0 1-1.63-1.63l3.8-3.8-3.8-3.8a1.15 1.15 0 0 1 1.63-1.63l3.8 3.8 3.8-3.8a1.15 1.15 0 0 1 1.63 1.63l-3.8 3.8 3.8 3.8Z"

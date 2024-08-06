@@ -42,9 +42,11 @@ export default function Drinks() {
 					}}
 				>
 					{drinks.map((drink) => (
-						<div className="flex justify-center items-center">
+						<div
+							key={drink._id}
+							className="flex justify-center items-center"
+						>
 							<Product
-								key={drink._id}
 								nombre={drink.nombre}
 								descripcion={drink.descripcion}
 								precio={drink.precio}

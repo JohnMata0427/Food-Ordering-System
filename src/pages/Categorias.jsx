@@ -38,9 +38,11 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Comidas")
 						.map((producto) => (
-							<div className="flex justify-center items-center">
+							<div
+								key={producto._id}
+								className="flex justify-center items-center"
+							>
 								<Product
-									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
@@ -67,9 +69,11 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Bebidas")
 						.map((producto) => (
-							<div className="flex justify-center items-center">
+							<div
+								key={producto._id}
+								className="flex justify-center items-center"
+							>
 								<Product
-									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
@@ -96,9 +100,11 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Snacks")
 						.map((producto) => (
-							<div className="flex justify-center items-center">
+							<div
+								key={producto._id}
+								className="flex justify-center items-center"
+							>
 								<Product
-									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}

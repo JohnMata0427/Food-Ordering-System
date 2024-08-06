@@ -40,9 +40,11 @@ export default function Food() {
 					}}
 				>
 					{food.map((food) => (
-						<div className="flex justify-center items-center">
+						<div
+							key={food._id}
+							className="flex justify-center items-center"
+						>
 							<Product
-								key={food._id}
 								nombre={food.nombre}
 								descripcion={food.descripcion}
 								precio={food.precio}
