@@ -47,7 +47,7 @@ export default function Categorias() {
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
-									categoria="snack"
+									categoria="comida"
 									imageUrl={producto.foto.url}
 								/>
 							</Link>
@@ -78,7 +78,7 @@ export default function Categorias() {
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
-									categoria="snack"
+									categoria="bebida"
 									imageUrl={producto.foto.url}
 								/>
 							</Link>

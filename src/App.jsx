@@ -14,16 +14,17 @@ import EmailConfirmed from "@pages/auth/EmailConfirmed";
 import ActualizarPerfil from "@pages/chef/ActualizarPerfil";
 import PerfilChef from "@pages/chef/PerfilChef";
 import Categorias from "@pages/Categorias";
-import Food from "./pages/Food";
-import Drinks from "./pages/Drinks";
-import Snacks from "./pages/Snacks";
+import Food from "@pages/Food";
+import Drinks from "@pages/Drinks";
+import Snacks from "@pages/Snacks";
 import Ordenar from "@pages/Ordenar";
 import Contacto from "@pages/Contacto";
 import Verification from "@pages/auth/Verification";
 import Reset from "@pages/auth/Reset";
 import Historial from "@pages/student/Historial";
 import DetallePedido from "@pages/student/DetallePedido";
-import DescripcionProducto from "./pages/DescripcionProducto";
+import DescripcionProducto from "@pages/DescripcionProducto";
+import { PublicRoute } from "./routes/PublicRoute";
 
 export default function App() {
 	return (
@@ -31,34 +32,46 @@ export default function App() {
 			<BrowserRouter>
 				<AuthProvider>
 					<Routes>
-						<Route path="auth" element={<AuthLayout />}>
-							<Route
-								index
-								path="iniciar-sesion"
-								element={<Login />}
-							/>
-							<Route path="registro" element={<Register />} />
-							<Route
-								path="confirmar-email/:token"
-								element={<ConfirmEmail />}
-							/>
-							<Route
-								path="email-confirmado"
-								element={<EmailConfirmed />}
-							/>
-							<Route
-								path="recuperar-contraseña"
-								element={<Recovery />}
-							/>
-							<Route
-								path="codigo-verificacion"
-								element={<Verification />}
-							/>
-							<Route
-								path="restablecer-contraseña"
-								element={<Reset />}
-							/>
-						</Route>
+						<Route
+							path="auth/*"
+							element={
+								<PublicRoute>
+									<Routes>
+										<Route element={<AuthLayout />}>
+											<Route
+												index
+												path="iniciar-sesion"
+												element={<Login />}
+											/>
+											<Route
+												path="registro"
+												element={<Register />}
+											/>
+											<Route
+												path="confirmar-email/:token"
+												element={<ConfirmEmail />}
+											/>
+											<Route
+												path="email-confirmado"
+												element={<EmailConfirmed />}
+											/>
+											<Route
+												path="recuperar-contraseña"
+												element={<Recovery />}
+											/>
+											<Route
+												path="codigo-verificacion"
+												element={<Verification />}
+											/>
+											<Route
+												path="restablecer-contraseña"
+												element={<Reset />}
+											/>
+										</Route>
+									</Routes>
+								</PublicRoute>
+							}
+						></Route>
 
 						<Route
 							path="/*"
@@ -101,7 +114,9 @@ export default function App() {
 											/>
 											<Route
 												path="producto/:id"
-												element={<DescripcionProducto />}
+												element={
+													<DescripcionProducto />
+												}
 											/>
 											<Route
 												path="contacto"

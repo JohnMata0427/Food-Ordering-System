@@ -9,8 +9,9 @@ export default function UserLayout() {
 		location.charAt(0).toUpperCase() + location.slice(1);
 
 	useEffect(() => {
-		document.title = `Asociación de la ESFOT - ${locationCapitalized}`;
-	}, []);
+		if (location === "producto") return;
+		document.title = `${locationCapitalized} - Asociación de la ESFOT`;
+	}, [location]);
 
 	return (
 		<>

@@ -19,9 +19,9 @@ export default function Header() {
 						<Link
 							className={`${
 								urlActual === "/inicio"
-									? "text-[#dcb50e]"
+									? "text-primary"
 									: "text-white"
-							} hover:text-[#dcb50e] text-sm`}
+							} hover:text-primary text-sm`}
 							to="/inicio"
 						>
 							Inicio
@@ -31,9 +31,9 @@ export default function Header() {
 						<Link
 							className={`${
 								urlActual === "/categorias"
-									? "text-[#dcb50e]"
+									? "text-primary"
 									: "text-white"
-							} hover:text-[#dcb50e] text-sm`}
+							} hover:text-primary text-sm`}
 							to="/categorias"
 						>
 							Categorias
@@ -43,9 +43,9 @@ export default function Header() {
 						<Link
 							className={`${
 								urlActual === "/ordenar"
-									? "text-[#dcb50e]"
+									? "text-primary"
 									: "text-white"
-							} hover:text-[#dcb50e] text-sm`}
+							} hover:text-primary text-sm`}
 							to="/ordenar"
 						>
 							Ordenar
@@ -55,9 +55,9 @@ export default function Header() {
 						<Link
 							className={`${
 								urlActual === "/contacto"
-									? "text-[#dcb50e]"
+									? "text-primary"
 									: "text-white"
-							} hover:text-[#dcb50e] text-sm`}
+							} hover:text-primary text-sm`}
 							to="/contacto"
 						>
 							Contacto
@@ -86,22 +86,22 @@ export default function Header() {
 				<button
 					className={`${
 						urlActual === "/perfil" || menu
-							? "text-[#dcb50e] *:fill-[#dcb50e]"
+							? "text-primary *:fill-primary"
 							: "text-white *:fill-white"
 					} group flex items-center gap-x-2 p-2`}
 					onClick={() => setMenu(true)}
 				>
 					<svg width="27" viewBox="0 0 50 50">
 						<path
-							className="group-hover:fill-[#dcb50e]"
+							className="group-hover:fill-primary"
 							d="M24.97 4.69A20.03 20.03 0 0 0 4.69 24.97 20.06 20.06 0 0 0 24.4 44.69 20.02 20.02 0 0 0 44.68 24.4 20.05 20.05 0 0 0 24.97 4.69Zm12.15 31.46a.38.38 0 0 1-.59-.03 11.95 11.95 0 0 0-3.11-2.84 16.33 16.33 0 0 0-8.73-2.44c-3.19 0-6.29.87-8.74 2.44-1.2.75-2.25 1.72-3.1 2.84a.38.38 0 0 1-.6.03 16.86 16.86 0 0 1-4.49-11.17A17.03 17.03 0 0 1 24.65 7.76a16.93 16.93 0 0 1 12.47 28.4Z"
 						/>
 						<path
-							className="group-hover:fill-[#dcb50e]"
+							className="group-hover:fill-primary"
 							d="M25 14.06c-1.93 0-3.67.72-4.9 2.04a6.62 6.62 0 0 0-1.72 5.07c.28 3.83 3.25 6.95 6.62 6.95s6.33-3.12 6.62-6.95a6.56 6.56 0 0 0-1.73-5.06A6.63 6.63 0 0 0 25 14.06Z"
 						/>
 					</svg>
-					<span className="text-sm group-hover:text-[#dcb50e]">
+					<span className="text-sm group-hover:text-primary">
 						Perfil
 					</span>
 				</button>

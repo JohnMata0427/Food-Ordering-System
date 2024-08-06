@@ -14,9 +14,9 @@ export function CustomButton({
 			"group-hover:fill-black",
 		],
 		yellow: [
-			"bg-[#DCB50E] border-[#DCB50E]",
-			"group-hover:text-[#DCB50E] focus:text-[#DCB50E]",
-			"group-hover:fill-[#DCB50E]",
+			"bg-primary border-primary",
+			"group-hover:text-primary focus:text-primary",
+			"group-hover:fill-primary",
 		],
 		white: [
 			"bg-white border-white",

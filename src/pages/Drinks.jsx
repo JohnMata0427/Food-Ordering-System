@@ -42,7 +42,10 @@ export default function Drinks() {
 					}}
 				>
 					{drinks.map((drink, index) => (
-						<Link className="flex justify-center items-center" to={`/producto/${drink._id}`}>
+						<Link
+							className="flex justify-center items-center"
+							to={`/producto/${drink._id}`}
+						>
 							<Product
 								key={index}
 								nombre={drink.nombre}
