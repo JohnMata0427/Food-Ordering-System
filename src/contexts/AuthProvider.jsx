@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const respuesta = await axios.put(url, formData, option);
+      const respuesta = await axios.post(url, formData, option);
       return { respuesta: respuesta.data.msg, exito: true };
     } catch (error) {
       return { respuesta: error.response.data.msg, exito: false };

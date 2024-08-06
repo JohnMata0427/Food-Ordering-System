@@ -8,13 +8,14 @@ export default function AddProductComponent() {
   const [mensaje, setMensaje] = useState({});
 
   const HandleSubmit = async (e) => {
-    console.log("Submit Realizado");
+    
     e.preventDefault();
     if (Object.values(form).includes("")) {
       setMensaje({
         respuesta: "Todos los campos deben ser ingresados",
         exito: false,
       });
+      console.log("Submit Realizado");
 
       setTimeout(() => {
         setMensaje({});
