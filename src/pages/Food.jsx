@@ -39,17 +39,18 @@ export default function Food() {
 							"repeat(auto-fit, minmax(400px, 1fr))",
 					}}
 				>
-					{food.map((food, index) => (
-						<Link to={`/producto/${food._id}`}>
+					{food.map((food) => (
+						<div className="flex justify-center items-center">
 							<Product
-								key={index}
+								key={food._id}
 								nombre={food.nombre}
 								descripcion={food.descripcion}
 								precio={food.precio}
 								categoria="comida"
 								imageUrl={food.foto.url}
+								to={`/producto/${food._id}`}
 							/>
-						</Link>
+						</div>
 					))}
 				</div>
 			</section>

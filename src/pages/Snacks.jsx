@@ -40,17 +40,18 @@ export default function Snacks() {
 							"repeat(auto-fit, minmax(400px, 1fr))",
 					}}
 				>
-					{snacks.map((snack, index) => (
-						<Link to={`/producto/${snack._id}`}>
+					{snacks.map((snack) => (
+						<div className="flex justify-center items-center">
 							<Product
-								key={index}
+								key={snack._id}
 								nombre={snack.nombre}
 								descripcion={snack.descripcion}
 								precio={snack.precio}
 								categoria="snack"
 								imageUrl={snack.foto.url}
+								to={`/producto/${snack._id}`}
 							/>
-						</Link>
+						</div>
 					))}
 				</div>
 			</section>

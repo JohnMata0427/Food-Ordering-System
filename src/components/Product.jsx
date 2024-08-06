@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CustomButton } from "./CustomButton";
 import NumberInput from "./NumberInput";
+import { Link } from "react-router-dom";
 
 export default function Product({
 	nombre,
@@ -8,6 +9,7 @@ export default function Product({
 	precio,
 	categoria,
 	imageUrl,
+	to,
 }) {
 	const [count, setCount] = useState(1);
 
@@ -20,11 +22,13 @@ export default function Product({
 	return (
 		<article className="flex bg-slate-100 rounded-xl shadow-lg shadow-black/30 w-[400px] h-40">
 			<div className="w-1/2 flex justify-center relative">
-				<img
-					className="size-full rounded-l-xl"
-					src={imageUrl}
-					alt={nombre}
-				/>
+				<Link to={to}>
+					<img
+						className="h-full rounded-l-xl"
+						src={imageUrl}
+						alt={nombre}
+					/>
+				</Link>
 				<div
 					className={`absolute bottom-2 right-0 ${categorias[categoria]} text-white font-bold py-1 px-3 rounded-l-lg`}
 				>

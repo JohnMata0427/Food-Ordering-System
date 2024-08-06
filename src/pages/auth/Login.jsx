@@ -112,11 +112,11 @@ export default function Login() {
 							>
 								<svg height="20" viewBox="0 0 40 40">
 									<path
-										className="fill-white group-hover:fill-[#000]"
+										className="fill-white group-hover:fill-black"
 										d="M20.43 7.91a.63.63 0 0 0-.86 0L5.19 21.65a.63.63 0 0 0-.2.45V35a2.5 2.5 0 0 0 2.5 2.5H15a1.25 1.25 0 0 0 1.25-1.25V25.62a.62.62 0 0 1 .63-.62h6.25a.62.62 0 0 1 .62.63v10.62A1.25 1.25 0 0 0 25 37.5h7.5A2.5 2.5 0 0 0 35 35V22.1a.63.63 0 0 0-.19-.45L20.43 7.91Z"
 									/>
 									<path
-										className="fill-white group-hover:fill-[#000]"
+										className="fill-white group-hover:fill-black"
 										d="m38.35 19.07-5.84-5.59V5a1.25 1.25 0 0 0-1.25-1.25H27.5A1.25 1.25 0 0 0 26.26 5v2.5l-4.53-4.33A2.43 2.43 0 0 0 20 2.5c-.68 0-1.3.25-1.73.67L1.65 19.07a1.27 1.27 0 0 0-.1 1.75 1.25 1.25 0 0 0 1.8.08L19.58 5.41a.63.63 0 0 1 .86 0l16.22 15.5a1.25 1.25 0 0 0 1.76-.04c.48-.5.44-1.32-.06-1.8Z"
 									/>
 								</svg>

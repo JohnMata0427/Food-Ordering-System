@@ -38,19 +38,17 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Comidas")
 						.map((producto) => (
-							<Link
-								className="flex justify-center items-center"
-								to={`/producto/${producto._id}`}
-							>
+							<div className="flex justify-center items-center">
 								<Product
-									key={producto.nombre}
+									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
 									categoria="comida"
 									imageUrl={producto.foto.url}
+									to={`/producto/${producto._id}`}
 								/>
-							</Link>
+							</div>
 						))}
 				</div>
 			</section>
@@ -69,19 +67,17 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Bebidas")
 						.map((producto) => (
-							<Link
-								className="flex justify-center items-center"
-								to={`/producto/${producto._id}`}
-							>
+							<div className="flex justify-center items-center">
 								<Product
-									key={producto.nombre}
+									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
 									categoria="bebida"
 									imageUrl={producto.foto.url}
+									to={`/producto/${producto._id}`}
 								/>
-							</Link>
+							</div>
 						))}
 				</div>
 			</section>
@@ -100,19 +96,17 @@ export default function Categorias() {
 					{productos
 						.filter((producto) => producto.categoria === "Snacks")
 						.map((producto) => (
-							<Link
-								className="flex justify-center items-center"
-								to={`/producto/${producto._id}`}
-							>
+							<div className="flex justify-center items-center">
 								<Product
-									key={producto.nombre}
+									key={producto._id}
 									nombre={producto.nombre}
 									descripcion={producto.descripcion}
 									precio={producto.precio}
 									categoria="snack"
 									imageUrl={producto.foto.url}
+									to={`/producto/${producto._id}`}
 								/>
-							</Link>
+							</div>
 						))}
 				</div>
 			</section>

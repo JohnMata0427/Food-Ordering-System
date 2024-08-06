@@ -41,20 +41,18 @@ export default function Drinks() {
 							"repeat(auto-fit, minmax(400px, 1fr))",
 					}}
 				>
-					{drinks.map((drink, index) => (
-						<Link
-							className="flex justify-center items-center"
-							to={`/producto/${drink._id}`}
-						>
+					{drinks.map((drink) => (
+						<div className="flex justify-center items-center">
 							<Product
-								key={index}
+								key={drink._id}
 								nombre={drink.nombre}
 								descripcion={drink.descripcion}
 								precio={drink.precio}
 								categoria="bebida"
 								imageUrl={drink.foto.url}
+								to={`/producto/${drink._id}`}
 							/>
-						</Link>
+						</div>
 					))}
 				</div>
 			</section>
