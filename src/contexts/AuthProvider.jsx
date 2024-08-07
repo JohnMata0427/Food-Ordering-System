@@ -52,24 +52,9 @@ export const AuthProvider = ({ children }) => {
       return { respuesta: error.response.data.msg, exito: false };
     }
   };
-  const AddProductoAsync = async (formData) => {
-    try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/chef/productos/registro`;
-      const option = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const respuesta = await axios.post(url, formData, option);
-      return { respuesta: respuesta.data.msg, exito: true };
-    } catch (error) {
-      return { respuesta: error.response.data.msg, exito: false };
-    }
-  };
-
+  
   return (
-    <AuthContext.Provider value={{ auth, setAuth, uploadPerfil , AddProductoAsync }}>
+    <AuthContext.Provider value={{ auth, setAuth, uploadPerfil }}>
       {children}
     </AuthContext.Provider>
   );

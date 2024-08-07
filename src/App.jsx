@@ -28,86 +28,96 @@ import { PublicRoute } from "./routes/PublicRoute";
 import DashboardChef from "./pages/chef/DashboardCheftPage";
 import ChefLayout from "./layouts/ChefLayout";
 import AddProductComponent from "./pages/chef/AddProduct";
+import EditarProductoComponent from "./pages/chef/EditarProducto";
 
 export default function App() {
   return (
     <>
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
-            <Route
-              path="auth/*"
-              element={
-                <PublicRoute>
-                  <Routes>
-                    <Route element={<AuthLayout />}>
-                      <Route index path="iniciar-sesion" element={<Login />} />
-                      <Route path="registro" element={<Register />} />
-                      <Route
-                        path="confirmar-email/:token"
-                        element={<ConfirmEmail />}
-                      />
-                      <Route
-                        path="email-confirmado"
-                        element={<EmailConfirmed />}
-                      />
-                      <Route
-                        path="recuperar-contraseña"
-                        element={<Recovery />}
-                      />
-                      <Route
-                        path="codigo-verificacion"
-                        element={<Verification />}
-                      />
-                      <Route
-                        path="restablecer-contraseña"
-                        element={<Reset />}
-                      />
-                    </Route>
-                  </Routes>
-                </PublicRoute>
-              }
-            ></Route>
+            <Routes>
+              <Route
+                path="auth/*"
+                element={
+                  <PublicRoute>
+                    <Routes>
+                      <Route element={<AuthLayout />}>
+                        <Route
+                          index
+                          path="iniciar-sesion"
+                          element={<Login />}
+                        />
+                        <Route path="registro" element={<Register />} />
+                        <Route
+                          path="confirmar-email/:token"
+                          element={<ConfirmEmail />}
+                        />
+                        <Route
+                          path="email-confirmado"
+                          element={<EmailConfirmed />}
+                        />
+                        <Route
+                          path="recuperar-contraseña"
+                          element={<Recovery />}
+                        />
+                        <Route
+                          path="codigo-verificacion"
+                          element={<Verification />}
+                        />
+                        <Route
+                          path="restablecer-contraseña"
+                          element={<Reset />}
+                        />
+                      </Route>
+                    </Routes>
+                  </PublicRoute>
+                }
+              ></Route>
 
-            <Route
-              path="/*"
-              element={
-                <PrivateRoute>
-                  <Routes>
-                    <Route element={<UserLayout />}>
-                      <Route index path="inicio" element={<Home />} />
-                      <Route path="categorias" element={<Categorias />} />
-                      <Route path="historial" element={<Historial />} />
-                      <Route path="pedido/:id" element={<DetallePedido />} />
-                      <Route path="categorias/comidas" element={<Food />} />
-                      <Route path="categorias/bebidas" element={<Drinks />} />
-                      <Route path="categorias/postres" element={<Snacks />} />
-                      <Route path="ordenar" element={<Ordenar />} />
-                      <Route
-                        path="producto/:id"
-                        element={<DescripcionProducto />}
-                      />
-                      <Route path="contacto" element={<Contacto />} />
-                      <Route
-                        path="actualizar-perfil"
-                        element={<ActualizarPerfil />}
-                      />
-                      <Route path="perfil" element={<PerfilChef />} />
-                    </Route>
-                  </Routes>
-                </PrivateRoute>
-              }
-            />
+              <Route
+                path="/*"
+                element={
+                  <PrivateRoute>
+                    <Routes>
+                      <Route element={<UserLayout />}>
+                        <Route index path="inicio" element={<Home />} />
+                        <Route path="categorias" element={<Categorias />} />
+                        <Route path="historial" element={<Historial />} />
+                        <Route path="pedido/:id" element={<DetallePedido />} />
+                        <Route path="categorias/comidas" element={<Food />} />
+                        <Route path="categorias/bebidas" element={<Drinks />} />
+                        <Route path="categorias/postres" element={<Snacks />} />
+                        <Route path="ordenar" element={<Ordenar />} />
+                        <Route
+                          path="producto/:id"
+                          element={<DescripcionProducto />}
+                        />
+                        <Route path="contacto" element={<Contacto />} />
+                        <Route
+                          path="actualizar-perfil"
+                          element={<ActualizarPerfil />}
+                        />
+                        <Route path="perfil" element={<PerfilChef />} />
+                      </Route>
+                      <Route path="/chef" element={<ChefLayout />}>
+                        <Route index path="home" element={<h1>Home</h1>} />
+                        <Route
+                          path="add-producto"
+                          element={<AddProductComponent />}
+                        />
+                        <Route path="editar-producto" element={<EditarProductoComponent />} />
+                        <Route
+                          path="eliminar-producto"
+                          element={<h1>Eliminar</h1>}
+                        />
+                      </Route>
+                    </Routes>
+                  </PrivateRoute>
+                }
+              />
 
-            <Route path="/chef" element={<ChefLayout />}>
-              <Route index path="home" element={<h1>Home</h1>} />
-              <Route path="add-producto" element={<AddProductComponent />} />
-              <Route path="editar-producto" element={<h1>edit</h1>} />
-              <Route path="eliminar-producto" element={<h1>Eliminar</h1>} />
-            </Route>
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
         </AuthProvider>
       </BrowserRouter>
     </>

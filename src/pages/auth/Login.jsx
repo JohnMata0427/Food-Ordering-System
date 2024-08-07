@@ -28,6 +28,8 @@ export default function Login() {
 		axios
 			.post(`${import.meta.env.VITE_BACKEND_URL}/login`, form)
 			.then(({ data }) => {
+				console.log(data.token);
+
 				localStorage.setItem("token", data.token);
 				navigate("/inicio");
 			})

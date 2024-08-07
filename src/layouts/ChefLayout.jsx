@@ -1,6 +1,7 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export default function ChefLayout() {
+  const navigate = useNavigate()
   return (
     <div className="flex">
 
@@ -10,9 +11,9 @@ export default function ChefLayout() {
         <span className="text-gray-600  ml-4 text-2xl font-bold">Tail-Kit</span>
       </div>
       <nav className="mt-10 px-6 ">
-        <a
+        <button
           className="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors  duration-200  text-white ounded-lg "
-          href="#"
+          onClick={()=> navigate("/chef/add-producto")}
         >
           <svg
             fill="none"
@@ -34,11 +35,12 @@ export default function ChefLayout() {
           </svg>
           <span className="mx-4 text-lg font-normal">Añadir Productos</span>
           <span className="flex-grow text-right"></span>
-        </a>
+        </button>
 
-        <a
+        <button
           className="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors  duration-200  text-white  rounded-lg "
-          href="#"
+          onClick={()=> navigate("/chef/editar-producto")}
+
           >
           <svg
             fill="none"
@@ -53,10 +55,10 @@ export default function ChefLayout() {
             </svg>
           <span className="mx-4 text-lg font-normal">Editar Productos</span>
           <span className="flex-grow text-right"></span>
-        </a>
-        <a
+        </button>
+        <button
           className="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors   duration-200  text-white  rounded-lg "
-          href="#"
+          onClick={()=> navigate("/chef/eliminar-producto")}
           >
           <svg
       viewBox="0 0 1024 1024"
@@ -67,7 +69,7 @@ export default function ChefLayout() {
     </svg>
           <span className="mx-4 text-lg font-normal">Eliminar Productos</span>
           <span className="flex-grow text-right"></span>
-        </a>
+        </button>
       </nav>
 
     </div>

@@ -3,28 +3,48 @@ import { useContext, useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
 
-export default function AddProductComponent() {
+export default function EditarProductoComponent() {
   const [mensaje, setMensaje] = useState({});
-
-//   const AddProductoAsync = async (formData) => {
+  const AddProductoAsync = async (formData) => {
+    const token = localStorage.getItem("token");
+    console.log(token);
     
-// /*
-//     const solicitud = await fetch(
-//       `${import.meta.env.VITE_BACKEND_URL}/productos/registro`,
-//       {
-//         method:"POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: `Bearer ${token}`,
-//         },
-//         body:JSON.stringify(formData),
-//         mode:"cors"
+    try {
+      const url = `${import.meta.env.VITE_BACKEND_URL}/productos/registro`;
+      const option = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const respuesta = await axios.post(url, formData, option);
+      return respuesta
+    } catch (error) {
+      return error
+    }
+/*
+    const solicitud = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/productos/registro`,
+      {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body:JSON.stringify(formData),
+        mode:"cors"
 
-//       }
-//     );
-//     const respuesta = await solicitud.json();
-//     return respuesta;*/
-//   };
+      }
+    );
+    const respuesta = await solicitud.json();
+    return respuesta;*/
+  };
+
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    const resultado = await AddProductoAsync(form);
+    console.log(resultado);
+  };
 
   const [form, setForm] = useState({
     nombre: "",
@@ -36,27 +56,6 @@ export default function AddProductComponent() {
     setForm({ ...form, [event.target.id]: event.target.value });
   };
 
-  const HandleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem('token');
-      const url = `${import.meta.env.VITE_BACKEND_URL}/productos/registro`;
-      const options = {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      };
-  
-      const respuesta = await axios.post(url, form, options);
-      console.log(respuesta);
-  
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-
   return (
     <div>
       <form
@@ -65,14 +64,14 @@ export default function AddProductComponent() {
         id="addproducto"
       >
         <div className="mt-32">
-          <h1 className="text-3xl w-full text-center">Agregar Producto</h1>
+          <h1 className="text-3xl w-full text-center">Editar Producto</h1>
         </div>
         <div className="w-full my-auto">
           <div className="flex justify-around w-full">
             <div>
               <div className="flex flex-col mb-9">
                 <div className=" relative ">
-                  <label htmlFor="">Nombre Producto</label>
+                  <label htmlFor="">Nuevo nombre del Producto</label>
                   <input
                     type="text"
                     id="nombre_producto"
@@ -84,7 +83,7 @@ export default function AddProductComponent() {
               </div>
               <div className="flex flex-col mb-9">
                 <div className=" relative ">
-                  <label htmlFor="precio_producto">Precio Producto</label>
+                  <label htmlFor="precio_producto">Nuevo precio Producto</label>
                   <input
                     type="text"
                     onChange={HandleChange}
@@ -96,12 +95,26 @@ export default function AddProductComponent() {
               </div>
               <div className="flex flex-col mb-9">
                 <label htmlFor="descripcion_producto">
-                  Descripcion Producto
+                  Nueva descripcion del Producto
                 </label>
                 <div className=" relative ">
                   <input
                     type="text"
                     id="descripcion_producto"
+                    onChange={HandleChange}
+                    className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
+                    name="pseudo"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col mb-9">
+                <label htmlFor="descripcion_producto">
+                  Cantidad 
+                </label>
+                <div className=" relative ">
+                  <input
+                    type="text"
+                    id="cantidad"
                     onChange={HandleChange}
                     className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
                     name="pseudo"
