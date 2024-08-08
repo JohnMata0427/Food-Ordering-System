@@ -108,7 +108,22 @@ export default function AddProductComponent() {
                   />
                 </div>
               </div>
+              <div className="flex flex-col mb-9">
+                <label htmlFor="descripcion_producto">
+                  Cantidad 
+                </label>
+                <div className=" relative ">
+                  <input
+                    type="text"
+                    id="cantidad"
+                    onChange={HandleChange}
+                    className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
+                    name="pseudo"
+                  />
+                </div>
+              </div>
             </div>
+            
             <div className="flex flex-col items-center">
               <div className=" mr-auto">
                 <h3 className=" text-xl text-start">Imagen Producto</h3>
