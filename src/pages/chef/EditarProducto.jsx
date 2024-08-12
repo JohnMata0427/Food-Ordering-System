@@ -49,7 +49,7 @@ export default function EditarProductoComponent() {
         onSubmit={HandleSubmit}
         id="addproducto"
       >
-        <div className="mt-32">
+        <div className="mt-10">
           <h1 className="text-3xl w-full text-center">EDITAR PRODUCTOS</h1>
         </div>
         <div className="w-full my-auto">

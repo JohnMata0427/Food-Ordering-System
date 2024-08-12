@@ -5,6 +5,7 @@ import axios from "axios";
 
 export default function AddProductComponent() {
   const [mensaje, setMensaje] = useState({});
+  const [imageUrl, setImageUrl] = useState("")
 
 //   const AddProductoAsync = async (formData) => {
     
@@ -30,11 +31,32 @@ export default function AddProductComponent() {
     nombre: "",
     precio: "",
     descripcion: "",
+    cantidad: "",
+    imagen: ""
   });
 
   const HandleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
   };
+
+  const HandleImageUpload = async (e) => {
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append("file", file)
+    formData.append("Upload_preset")
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${import.meta.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
+        formData
+      )
+      const imageUrl = response.data.secure_url 
+      setImageUrl(imageUrl)
+      setForm({...form, imagen: imageUrl})
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +86,7 @@ export default function AddProductComponent() {
         onSubmit={HandleSubmit}
         id="addproducto"
       >
-        <div className="mt-32">
+        <div className="mt-10">
           <h1 className="text-3xl w-full text-center">Agregar Producto</h1>
         </div>
         <div className="w-full my-auto">
@@ -125,10 +147,13 @@ export default function AddProductComponent() {
             </div>
             
             <div className="flex flex-col items-center">
+              <input type="file" />
               <div className=" mr-auto">
                 <h3 className=" text-xl text-start">Imagen Producto</h3>
               </div>
-              <div className="bg-gray-500 w-[40rem] h-[18rem] rounded-xl"></div>
+              <div className="bg-gray-500 w-[40rem] h-[18rem] rounded-xl">
+                {imageUrl && <img src={imageUrl} alt="Imagen del Producto"/>}
+              </div>
               <CustomButton
                 texto="Subir"
                 color="yellow"
