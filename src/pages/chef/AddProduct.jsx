@@ -6,6 +6,7 @@ import axios from "axios";
 export default function AddProductComponent() {
   const [mensaje, setMensaje] = useState({});
   const [imageUrl, setImageUrl] = useState("")
+  
 
 //   const AddProductoAsync = async (formData) => {
     
@@ -32,51 +33,49 @@ export default function AddProductComponent() {
     precio: "",
     descripcion: "",
     cantidad: "",
-    imagen: ""
+  
   });
 
   const HandleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
   };
 
-  const HandleImageUpload = async (e) => {
-    const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append("file", file)
-    formData.append("Upload_preset")
-    try {
-      const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${import.meta.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
-        formData
-      )
-      const imageUrl = response.data.secure_url 
-      setImageUrl(imageUrl)
-      setForm({...form, imagen: imageUrl})
-    } catch (error) {
-      console.log(error);
-      
-    }
-  }
+
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
       const url = `${import.meta.env.VITE_BACKEND_URL}/productos/registro`;
+
+      const formData = new FormData()
+      formData.append('nombre', form.nombre)
+      formData.append('precio', form.precio)
+      formData.append('descripcion', form.descripcion)
+      formData.append('cantidad', form.cantidad)
+      formData.append('image', form.imagen)
+
+
       const options = {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
         }
       };
   
-      const respuesta = await axios.post(url, form, options);
+      const respuesta = await axios.post(url, formData, options);
       console.log(respuesta);
   
     } catch (error) {
       console.log(error);
     }
   };
+
+
+  const HandleFileChange =(e)=> {
+    const file = e.target.files[0]
+    setForm({...form, imagen: file})
+  }
   
 
   return (
@@ -147,7 +146,7 @@ export default function AddProductComponent() {
             </div>
             
             <div className="flex flex-col items-center">
-              <input type="file" />
+              <input type="file" onChange={HandleFileChange}/>
               <div className=" mr-auto">
                 <h3 className=" text-xl text-start">Imagen Producto</h3>
               </div>
