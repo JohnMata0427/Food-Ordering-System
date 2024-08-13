@@ -31,6 +31,7 @@ import AddProductComponent from "./pages/chef/AddProduct";
 import EditarProductoComponent from "./pages/chef/EditarProducto";
 import VerProductoEditar from "./pages/chef/VerProductosEditar";
 import EliminarProducto from "./pages/chef/EliminarProducto";
+import GestionPedidos from "./pages/GestionPedidos";
 
 export default function App() {
   return (
@@ -96,7 +97,10 @@ export default function App() {
                         element={<ActualizarPerfil />}
                       />
                       <Route path="perfil" element={<PerfilChef />} />
+                      <Route path="gestion-de-productos" element={<GestionPedidos />} />
                     </Route>
+
+
                   </Routes>
                 </PrivateRoute>
               }
@@ -118,7 +122,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   );
 }
