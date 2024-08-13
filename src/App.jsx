@@ -107,6 +107,7 @@ export default function App() {
             />
             <Route path="/chef" element={<ChefLayout />}>
               <Route index path="home" element={<h1>Home</h1>} />
+              <Route path="producto" element={<Produ />} />
               <Route path="add-producto" element={<AddProductComponent />} />
               <Route
                 path="editar-producto"
