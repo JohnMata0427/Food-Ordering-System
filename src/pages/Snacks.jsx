@@ -5,58 +5,58 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Snacks() {
-	const [snacks, setSnacks] = useState([]);
+    const [snacks, setSnacks] = useState([]);
 
-	const getSnacks = async () => {
-		setSnacks(
-			(
-				await axios.get(
-					`${import.meta.env.VITE_BACKEND_URL}/productos/Snacks`
-				)
-			).data
-		);
-	};
+    const getSnacks = async () => {
+        setSnacks(
+            (
+                await axios.get(
+                    `${import.meta.env.VITE_BACKEND_URL}/productos/Snacks`,
+                )
+            ).data,
+        );
+    };
 
-	useEffect(() => {
-		getSnacks();
-	}, []);
+    useEffect(() => {
+        getSnacks();
+    }, []);
 
-	return (
-		<>
-			<img
-				className="w-full"
-				src="https://cavinkare.com/wp-content/uploads/2017/08/garden_021.jpg"
-				alt="Fondo de Postres"
-			/>
-			<section className="flex flex-col">
-				<div className="bg-black text-white font-bold text-2xl text-center uppercase my-4">
-					<h1>Snacks</h1>
-				</div>
+    return (
+        <>
+            <img
+                className="w-full"
+                src="https://cavinkare.com/wp-content/uploads/2017/08/garden_021.jpg"
+                alt="Fondo de Postres"
+            />
+            <section className="flex flex-col">
+                <div className="my-4 bg-black text-center text-2xl font-bold uppercase text-white">
+                    <h1>Snacks</h1>
+                </div>
 
-				<div
-					className="grid place-content-center px-10 py-5 w-full gap-x-4 gap-y-8"
-					style={{
-						gridTemplateColumns:
-							"repeat(auto-fit, minmax(400px, 1fr))",
-					}}
-				>
-					{snacks.map((snack) => (
-						<div
-							key={snack._id}
-							className="flex justify-center items-center"
-						>
-							<Product
-								nombre={snack.nombre}
-								descripcion={snack.descripcion}
-								precio={snack.precio}
-								categoria="snack"
-								imageUrl={snack.foto.url}
-								to={`/producto/${snack._id}`}
-							/>
-						</div>
-					))}
-				</div>
-			</section>
-		</>
-	);
+                <div
+                    className="grid w-full place-content-center gap-x-4 gap-y-8 px-10 py-5"
+                    style={{
+                        gridTemplateColumns:
+                            "repeat(auto-fit, minmax(400px, 1fr))",
+                    }}
+                >
+                    {snacks.map((snack) => (
+                        <div
+                            key={snack._id}
+                            className="flex items-center justify-center"
+                        >
+                            <Product
+                                nombre={snack.nombre}
+                                descripcion={snack.descripcion}
+                                precio={snack.precio}
+                                categoria="snack"
+                                imageUrl={snack.foto.url}
+                                to={`/producto/${snack._id}`}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </>
+    );
 }
