@@ -13,7 +13,7 @@ export default function EditarProductoComponent() {
       const url = `${import.meta.env.VITE_BACKEND_URL}/productos/registro`;
       const option = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       };
@@ -50,6 +50,9 @@ export default function EditarProductoComponent() {
     nombre: "",
     precio: "",
     descripcion: "",
+    categoria: "",
+    cantidad: "",
+    image: "",
   });
 
   const HandleChange = (event) => {
@@ -125,6 +128,7 @@ export default function EditarProductoComponent() {
             <div className="flex flex-col items-center">
               <div className=" mr-auto">
                 <h3 className=" text-xl text-start">Imagen Producto</h3>
+                <input type="file" name="image" id="image" value={form.image} onChange={HandleChange} />
               </div>
               <div className="bg-gray-500 w-[40rem] h-[18rem] rounded-xl"></div>
               <CustomButton
