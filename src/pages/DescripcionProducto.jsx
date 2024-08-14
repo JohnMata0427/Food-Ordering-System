@@ -19,6 +19,7 @@ export default function DescripcionProducto() {
 				)
 			).data
 		);
+		console.log(product.data);
 	};
 
 	useEffect(() => {
@@ -42,15 +43,21 @@ export default function DescripcionProducto() {
 				<div className="flex flex-col justify-start">
 					<h1 className="text-xl">{product.nombre}</h1>
 					<p>{product.descripcion}</p>
-					<span className="text-sm my-4">
+					<span className="text-sm my-3">
 						Categoría:{" "}
 						<strong className="bg-amber-400 p-1 rounded-lg">
 							{product.categoria}
 						</strong>
 					</span>
+					<span className="text-sm my-1">
+						Stock:{" "}
+						<strong className=" p-1">
+							{product.cantidad}
+						</strong>
+					</span>
 					<span className="font-bold text-lg">{`$${product.precio}`}</span>
 				</div>
-				<NumberInput value={count} size="medium" />
+				<NumberInput value={count} size="medium" max={product.cantidad} />
 
 				<CustomButton
 					texto="Añadir al carrito"
