@@ -29,6 +29,9 @@ import DashboardChef from "./pages/chef/DashboardCheftPage";
 import ChefLayout from "./layouts/ChefLayout";
 import AddProductComponent from "./pages/chef/AddProduct";
 import EditarProductoComponent from "./pages/chef/EditarProducto";
+import VerProductoEditar from "./pages/chef/VerProductosEditar";
+import EliminarProducto from "./pages/chef/EliminarProducto";
+import GestionPedidos from "./pages/GestionPedidos";
 
 export default function App() {
 	return (

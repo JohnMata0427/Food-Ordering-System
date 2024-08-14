@@ -2,6 +2,8 @@ import { CustomButton } from "@components/CustomButton";
 import { useContext, useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function EditarProductoComponent() {
   const [mensaje, setMensaje] = useState({});
@@ -66,8 +68,8 @@ export default function EditarProductoComponent() {
         onSubmit={HandleSubmit}
         id="addproducto"
       >
-        <div className="mt-32">
-          <h1 className="text-3xl w-full text-center">Editar Producto</h1>
+        <div className="mt-10">
+          <h1 className="text-3xl w-full text-center">EDITAR PRODUCTOS</h1>
         </div>
         <div className="w-full my-auto">
           <div className="flex justify-around w-full">
@@ -81,6 +83,7 @@ export default function EditarProductoComponent() {
                     onChange={HandleChange}
                     className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
                     name="pseudo"
+                    value={producto.nombre}
                   />
                 </div>
               </div>
@@ -93,6 +96,20 @@ export default function EditarProductoComponent() {
                     id="precio_producto"
                     className=" rounded-lg border-black  flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
                     name="pseudo"
+                    value={producto.precio}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col mb-9">
+                <div className=" relative ">
+                  <label htmlFor="precio_producto">Nuevo categoría del Producto</label>
+                  <input
+                    type="text"
+                    onChange={HandleChange}
+                    id="precio_producto"
+                    className=" rounded-lg border-black  flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
+                    name="pseudo"
+                    value={producto.categoria}
                   />
                 </div>
               </div>
@@ -107,6 +124,7 @@ export default function EditarProductoComponent() {
                     onChange={HandleChange}
                     className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
                     name="pseudo"
+                    value={producto.descripcion}
                   />
                 </div>
               </div>
@@ -121,6 +139,7 @@ export default function EditarProductoComponent() {
                     onChange={HandleChange}
                     className=" rounded-lg border-black flex-1 appearance-none border  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus "
                     name="pseudo"
+                    value={producto.cantidad}
                   />
                 </div>
               </div>
@@ -130,7 +149,7 @@ export default function EditarProductoComponent() {
                 <h3 className=" text-xl text-start">Imagen Producto</h3>
                 <input type="file" name="image" id="image" value={form.image} onChange={HandleChange} />
               </div>
-              <div className="bg-gray-500 w-[40rem] h-[18rem] rounded-xl"></div>
+              <img src={producto.foto.url} className=" w-[40rem] h-[18rem] rounded-xl object-contain overflow-hidden"></img>
               <CustomButton
                 texto="Subir"
                 color="yellow"

@@ -1,5 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 
+import logo from "../assets/ui/logo.png";
+
 export default function ChefLayout() {
 	const navigate = useNavigate();
 	return (

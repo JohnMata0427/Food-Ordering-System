@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function NumberInput({ value, size }) {
+export default function NumberInput({ value, size, max }) {
 	const [count, setCount] = useState(value);
 
 	const sizeClasses = {
@@ -47,7 +47,7 @@ export default function NumberInput({ value, size }) {
 			/>
 			<button
 				onClick={() => {
-					if (count < 30) setCount(count + 1);
+					if (count < max) setCount(count + 1);
 				}}
 				className={`bg-black hover:bg-neutral-900 flex items-center justify-center border border-gray-300 rounded-md ${sizeClasses[size]} focus:ring-black focus:ring-2 focus:outline-none hover:scale-105`}
 			>
