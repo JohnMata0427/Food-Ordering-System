@@ -125,8 +125,7 @@
 
 <details>
   <summary>✅ Endpoint consumption to log in.</summary>
-  <img src="![image](https://github.com/user-attachments/assets/575c6b50-1e2c-4727-999d-af38a4df7cff)
-" alt="Descripción de la imagen">
+  <img src="https://github.com/user-attachments/assets/575c6b50-1e2c-4727-999d-af38a4df7cff" alt="Log in">
 </details>
 
 
