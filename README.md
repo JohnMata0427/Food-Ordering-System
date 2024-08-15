@@ -131,7 +131,7 @@
 
 ---
 
-<h3 id="sprint-3">🥤🍫 Sprint 4 - Deploy and Documentation</h3>
+<h3 id="sprint-3">🥤🍫 Sprint 4 - Deploy</h3>
 
 <details>
   <summary>▶️ Deploy</summary>
