@@ -22,20 +22,20 @@
 <details>
   <summary>✅ Definition of requirements and Constraints</summary>
   <ul>
-    <li>El frontend tiene los siguientes perfiles: Cocinero y Estudiante.</li>
-    <li>Hay un backend y una serie de APIs públicas y privadas disponibles para su consumo.</li>
-    <li>El perfil de Cocinero puede:
+    <li>The frontend has the following profiles: Cook and Student.</li>
+    <li>There is a backend and a series of public and private APIs available for consumption.</li>
+    <li>The Cook profile can:
       <ul>
-        <li>Registrarse e iniciar sesión.</li>
-        <li>Gestionar su perfil.</li>
-        <li>Gestionar productos.</li>
+        <li>Register and log in.</li>
+        <li>Manage their profile.</li>
+        <li>Manage products.</li>
       </ul>
     </li>
-    <li>El perfil de Estudiante puede:
+    <li>The Student profile can:
       <ul>
-        <li>Registrarse e iniciar sesión.</li>
-        <li>Añadir productos al carrito.</li>
-        <li>Realizar la compra.</li>
+        <li>Register and log in.</li>
+        <li>Add products to the cart.</li>
+        <li>Make purchases.</li>
       </ul>
     </li>
   </ul>
@@ -113,8 +113,10 @@
 
 <details>
   <summary>✅ User Roles</summary>
-> - Students 🧑‍🎓👩‍🎓
-> - Chefs 👨‍🍳👩‍🍳
+<ul>
+  <li>Chefs 👨‍🍳👩‍🍳</li>
+  <li>Students 🧑‍🎓👩‍🎓</li>
+</ul>
 </details>
 
 ---
