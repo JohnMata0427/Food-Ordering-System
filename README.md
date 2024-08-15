@@ -21,17 +21,15 @@
 
 <details>
   <summary>✅ Definition of requirements and Constraints</summary>
-> - ikss
-> - The frontend has the following profiles: Cook and Student.
-> - A backend and a series of public and private APIs are available for consumption.
-> - The cook profile can register and log in.
-> -The cook profile can manage his/her profile > - The cook profile can manage his/her profile
-> - The cook profile can manage products
-Student profile can register and log in 
-> - Student profile can register and log in
-> - The student profile can add products to cart
-> - The student profile can checkout
-
+  > - The frontend has the following profiles: Cook and Student.
+  > - A backend and a series of public and private APIs are available for consumption.
+  > - The cook profile can register and log in.
+  > - The cook profile can manage his/her profile > - The cook profile can manage his/her profile
+  > - The cook profile can manage products
+  > - Student profile can register and log in 
+  > - Student profile can register and log in
+  > - The student profile can add products to cart
+  > - The student profile can checkout
 </details>
 
 ---
