@@ -121,7 +121,7 @@ export default function Login() {
                     </span>
                     <Link
                         className="mt-2 text-center text-sm font-bold text-secondary hover:underline"
-                        to="/auth/recuperar-contraseña"
+                        to="/auth/recuperar-password"
                     >
                         ¿Olvidaste tu contraseña?
                     </Link>

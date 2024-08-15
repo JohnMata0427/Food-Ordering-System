@@ -7,6 +7,7 @@ import PasswordInput from "@components/PasswordInput";
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import { PacmanLoader } from "react-spinners";
 
 export default function Reset() {
     const [params] = useSearchParams();

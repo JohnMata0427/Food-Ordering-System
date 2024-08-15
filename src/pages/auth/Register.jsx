@@ -9,6 +9,7 @@ import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
 import PasswordInput from "../../components/PasswordInput";
+import { PacmanLoader } from "react-spinners";
 
 export default function Register() {
     const [loading, setLoading] = useState(false);
@@ -198,7 +199,7 @@ export default function Register() {
 
                             <Link
                                 className="text-sm font-bold text-secondary hover:underline"
-                                to="/auth/recuperar-contraseña"
+                                to="/auth/recuperar-password"
                             >
                                 ¿Olvidaste tu contraseña?
                             </Link>

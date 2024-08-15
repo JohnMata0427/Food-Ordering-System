@@ -11,6 +11,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { PacmanLoader } from "react-spinners";
 
 export default function Recovery() {
     const location = useLocation().pathname.split("/");
@@ -57,6 +58,7 @@ export default function Recovery() {
                     const response = await axios.get(
                         `${import.meta.env.VITE_BACKEND_URL}/chef/recuperarpassword/${location[3]}`,
                     );
+                    console.log(response);
                     navigate(
                         `/auth/restablecer-password?i=${response.data.id}&v=${response.data.verificationCode}`,
                     );
