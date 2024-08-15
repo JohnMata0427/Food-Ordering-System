@@ -6,7 +6,8 @@
 
 ---
 
-> [!IMPORTANT]> **Problematic Introduction**
+> [!IMPORTANT]
+> **Problematic Introduction**
 >
 > The lunchtime rush at ESFOT poses a significant operational challenge.
 > The influx of students seeking to order their meals within a limited timeframe (11 AM to 2 PM) results in the formation of long queues.
