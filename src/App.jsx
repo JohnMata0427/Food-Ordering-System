@@ -24,10 +24,8 @@ import DetallePedido from "@pages/student/DetallePedido";
 import DescripcionProducto from "@pages/DescripcionProducto";
 import { PublicRoute } from "./routes/PublicRoute";
 import ChefLayout from "./layouts/ChefLayout";
-import AddProductComponent from "./pages/chef/AddProduct";
-import EditarProductoComponent from "./pages/chef/EditarProducto";
-import VerProductoEditar from "./pages/chef/VerProductosEditar";
-import EliminarProducto from "./pages/chef/EliminarProducto";
+import AddProducts from "./pages/chef/AñadirProductos";
+import EditarProducts from "./pages/chef/EditarProductos";
 import GestionPedidos from "./pages/GestionPedidos";
 import ListarProductos from "./pages/chef/ListarProductos";
 
@@ -140,18 +138,14 @@ export default function App() {
                                             <Route
                                                 path="añadir-producto"
                                                 element={
-                                                    <AddProductComponent />
+                                                    <AddProducts />
                                                 }
                                             />
                                             <Route
-                                                path="editar-producto"
+                                                path="editar-producto/:id"
                                                 element={
-                                                    <EditarProductoComponent />
+                                                    <EditarProducts />
                                                 }
-                                            />
-                                            <Route
-                                                path="eliminar-producto"
-                                                element={<h1>Eliminar</h1>}
                                             />
                                         </Route>
                                     </Routes>

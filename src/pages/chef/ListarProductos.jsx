@@ -2,10 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Alerta from "../../components/Alerta";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ListarProductos() {
+    const navigate = useNavigate();
     const [productos, setProductos] = useState([]);
     const [mensaje, setMensaje] = useState({});
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await axios.delete(
+                `${import.meta.env.VITE_BACKEND_URL}/producto/${id}`,
+            );
+            setProductos(productos.filter((producto) => producto._id !== id));
+            setMensaje({ response: response.data.msg, exito: true });
+            setTimeout(() => {
+                setMensaje({});
+            }, 5000);
+        } catch ({ response }) {
+            setMensaje({ response: response.data.msg, exito: false });
+        }
+    }
 
     const getProductos = async () => {
         try {
@@ -70,17 +87,25 @@ export default function ListarProductos() {
                             <td>{producto.descripcion}</td>
                             <td>{producto.categoria}</td>
                             <td>${producto.precio}</td>
-                            <td className="flex items-center justify-center gap-x-2 h-14">
+                            <td className="flex h-14 items-center justify-center gap-x-2">
                                 <>
                                     <svg
-                                        className="size-5 *:fill-black"
+                                        onClick={() => {
+                                            navigate(
+                                                `/chef/editar-producto/${producto._id}`,
+                                            );
+                                        }}
+                                        className="size-5 *:fill-black cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 40 40"
                                     >
                                         <path d="M5.3 40H0v-5.3L29.8 4.8l5.4 5.4L5.2 40Zm31-31L31 3.7l3-3a2.7 2.7 0 0 1 2.8-.5l.8.5 1.7 1.7A2.5 2.5 0 0 1 40 4c0 .7-.3 1.4-.7 1.9l-3 3Z" />
                                     </svg>
                                     <svg
-                                        className="size-5 *:fill-red-700"
+                                        onClick={() => {
+                                            handleDelete(producto._id);
+                                        }}
+                                        className="size-5 *:fill-red-700 cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 35 40"
                                     >
