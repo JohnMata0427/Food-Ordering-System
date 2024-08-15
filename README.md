@@ -17,6 +17,22 @@
 
 ---
 
+<h3 id="sprint-0">🥣 Sprint 0 - Development Environment Configuration</h3>
+
+<details>
+  <summary>✅ Definition of requirements and Constraints</summary>
+> The frontend has the following profiles: Cook and Student.
+> - A backend and a series of public and private APIs are available for consumption.
+> - The cook profile can register and log in.
+The cook profile can manage his/her profile > - The cook profile can manage his/her profile
+> - The cook profile can manage products
+Student profile can register and log in > - Student profile can register and log in
+> - The student profile can add products to cart
+> - The student profile can checkout
+</details>
+
+---
+
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
 
 ![Vista Multiplataforma del Sitio](https://github.com/user-attachments/assets/b460007d-3943-4e1e-a7b7-f85a6a7e111d)
