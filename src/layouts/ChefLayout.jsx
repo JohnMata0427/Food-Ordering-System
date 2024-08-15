@@ -35,7 +35,7 @@ export default function ChefLayout() {
                 </div>
             </header>
             <main className="flex min-h-[90vh]">
-                <nav className="flex w-[20vw] flex-col items-center border-r-8 border-secondary bg-black text-white">
+                <nav className="flex w-[20vw] flex-col items-center border-r-8 border-secondary bg-black p-4 text-white">
                     <img className="w-1/2" src={Logo} alt="Logo" />
                     <h1 className="text-center text-xl uppercase">Dashboard</h1>
                     <ul className="flex h-full flex-col gap-y-2 mt-8">

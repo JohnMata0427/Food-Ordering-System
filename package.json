@@ -5,10 +5,10 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build && pnpm build:css",
+        "build": "vite build && npm run build:css",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
-        "build:css": "pnpx tailwindcss -o build.css --minify && pnpx cssnano build.css build.min.css"
+        "build:css": "npx tailwindcss -o build.css --minify"
     },
     "dependencies": {
         "@midudev/tailwind-animations": "^0.0.7",

@@ -117,7 +117,7 @@ export default function Header() {
                                 <li>
                                     <Link
                                         className="group flex items-center gap-x-2 text-sm text-black hover:scale-105 hover:text-neutral-700"
-                                        to="/chef/dashboard"
+                                        to="/chef/listar-productos"
                                         onClick={() => setMenu(false)}
                                     >
                                         <svg
