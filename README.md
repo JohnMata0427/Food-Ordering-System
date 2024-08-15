@@ -113,8 +113,8 @@
 
 <details>
   <summary>✅ User Roles</summary>
-> - Students 🧑‍🎓👩‍🎓
-> - Chefs 👨‍🍳👩‍🍳
+- Chefs 👨‍🍳👩‍🍳
+- Students 🧑‍🎓👩‍🎓
 </details>
 
 ---
