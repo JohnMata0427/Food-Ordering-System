@@ -124,9 +124,10 @@
 <h3 id="sprint-1">👨‍🍳 Sprint 1 - Chef Module</h3>
 
 <details>
-  <summary>✅ Endpoint consumption to log in. </summary>
-  ![image](https://github.com/user-attachments/assets/b8fb8f1a-31e3-4c96-a268-e254a18aba42)
+  <summary>✅ Endpoint consumption to log in.</summary>
+  <img src="https://github.com/usuario/repositorio/blob/main/assets/nombre_de_la_imagen.png" alt="Descripción de la imagen">
 </details>
+
 
 ---
 
