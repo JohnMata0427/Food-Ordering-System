@@ -17,6 +17,136 @@
 
 ---
 
+<h3 id="sprint-0">🥣 Sprint 0 - Development Environment Configuration</h3>
+
+<details>
+  <summary>✅ Definition of requirements and Constraints</summary>
+  <ul>
+    <li>El frontend tiene los siguientes perfiles: Cocinero y Estudiante.</li>
+    <li>Hay un backend y una serie de APIs públicas y privadas disponibles para su consumo.</li>
+    <li>El perfil de Cocinero puede:
+      <ul>
+        <li>Registrarse e iniciar sesión.</li>
+        <li>Gestionar su perfil.</li>
+        <li>Gestionar productos.</li>
+      </ul>
+    </li>
+    <li>El perfil de Estudiante puede:
+      <ul>
+        <li>Registrarse e iniciar sesión.</li>
+        <li>Añadir productos al carrito.</li>
+        <li>Realizar la compra.</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>✅ Frontend Project Structure</summary>
+  
+  > - **Tools**
+  > 
+  > | Image                                                        | Name                       |
+  > |--------------------------------------------------------------|----------------------------|
+  > | ![VSCode](https://skillicons.dev/icons?i=vscode&theme=light) | Visual Studio Code         |
+  > | ![NodeJS](https://skillicons.dev/icons?i=nodejs&theme=light) | Node.js                    |
+  > | ![PNPM](https://skillicons.dev/icons?i=pnpm&theme=light)     | PNPM (Recommendation)      |
+  > | ![React](https://skillicons.dev/icons?i=react&theme=light)   | React                      |
+  > | ![Tailwind CSS](https://skillicons.dev/icons?i=tailwindcss&theme=light) | Tailwind CSS          |
+  
+  > - **Project Initialization and Installation Dependencies**
+  >   
+  >   - Open the terminal and run the following command to create a new React app:
+  >     ```
+  >     npx create-react-app my-app
+  >     ```
+  >   - Navigate into your project directory:
+  >     ```
+  >     cd my-app
+  >     ```
+  >   - Install Tailwind CSS and other necessary dependencies:
+  >     ```
+  >     npm install -D tailwindcss postcss autoprefixer
+  >     npx tailwindcss init -p
+  >     ```
+  >   - Configure Tailwind by adding the following to your `tailwind.config.js`:
+  >     ```javascript
+  >     /** @type {import('tailwindcss').Config} */
+  >     module.exports = {
+  >       content: [
+  >         "./src/**/*.{js,jsx,ts,tsx}",
+  >       ],
+  >       theme: {
+  >         extend: {},
+  >       },
+  >       plugins: [],
+  >     }
+  >     ```
+  >   - Add the Tailwind directives to your `src/index.css`:
+  >     ```css
+  >     @tailwind base;
+  >     @tailwind components;
+  >     @tailwind utilities;
+  >     ```
+  
+  > - **Project File Structure**
+  >
+  >   - The basic structure of a React project is as follows:
+  >     ```
+  >     my-app/
+  >     ├── node_modules/
+  >     ├── public/
+  >     ├── src/
+  >     │   ├── assets/              # Static files (images, fonts)
+  >     │   ├── components/          # Reusable components
+  >     │   ├── pages/               # Pages or views
+  >     │   ├── App.js               # Main app component
+  >     │   ├── index.js             # Entry point
+  >     │   ├── index.css            # Global styles
+  >     │   └── tailwind.config.js   # Tailwind configuration
+  >     ├── .gitignore               # Git ignore file
+  >     ├── package.json             # Project dependencies
+  >     └── README.md                # Project documentation
+  >     ```
+  
+</details>
+
+<details>
+  <summary>✅ User Roles</summary>
+> - Students 🧑‍🎓👩‍🎓
+> - Chefs 👨‍🍳👩‍🍳
+</details>
+
+---
+
+<h3 id="sprint-1">👨‍🍳 Sprint 1 - Chef Module</h3>
+
+---
+
+<h3 id="sprint-2">👩‍🎓 Sprint 2 - Student Module</h3>
+
+---
+
+<h3 id="sprint-3">🏷️🍛 Sprint 3 - Products and Orders Module</h3>
+
+---
+
+<h3 id="sprint-3">🥤🍫 Sprint 4 - Deploy</h3>
+
+<details>
+  <summary>▶️ Deploy</summary>
+
+> <div align="center">
+>   <h4>Deployment in Vercel</h4>
+>   <img height="50px" src="https://skillicons.dev/icons?i=vercel">
+> </div>
+>
+> 🌐 Vercel Deployment URL: https://pedidos-comida-esfot.vercel.app/
+
+</details>
+
+---
+
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
 
 ![Vista Multiplataforma del Sitio](https://github.com/user-attachments/assets/b460007d-3943-4e1e-a7b7-f85a6a7e111d)
