@@ -87,7 +87,7 @@ export default function Header() {
                     className={`${
                         urlActual === "/perfil" || menu
                             ? "text-primary *:fill-primary"
-                            : "text-white hover:text-primary *:fill-white"
+                            : "text-white *:fill-white hover:text-primary"
                     } group flex items-center gap-x-2 p-2`}
                     onClick={() => setMenu(true)}
                 >
@@ -114,6 +114,26 @@ export default function Header() {
                         ></div>
                         <div className="absolute right-8 top-14 z-20 rounded-lg bg-neutral-200 shadow-lg shadow-black/30">
                             <ul className="flex flex-col gap-y-3 px-5 py-3">
+                                <li>
+                                    <Link
+                                        className="group flex items-center gap-x-2 text-sm text-black hover:scale-105 hover:text-neutral-700"
+                                        to="/chef/dashboard"
+                                        onClick={() => setMenu(false)}
+                                    >
+                                        <svg
+                                            className="size-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 1920 1920"
+                                        >
+                                            <path
+                                                className="fill-black group-hover:fill-neutral-700"
+                                                fill-rule="evenodd"
+                                                d="M1556.6 1920c-54 0-108.2-20.7-149.3-61.9L740 1191a604.7 604.7 0 0 1-550.5-163A606.1 606.1 0 0 1 65.8 356.2l32.4-72.7 390.2 390.2a63 63 0 0 0 88.7 0L687.8 563a62.5 62.5 0 0 0 18.2-44.4c0-16.7-6.4-32.5-18.2-44.3L297.6 84.2l72.7-32.4a606.2 606.2 0 0 1 671.6 123.7 605.6 605.6 0 0 1 151.9 594.8l650.6 650.7c40 39.8 62 93 62 149.4 0 56.4-22 109.5-62 149.4L1706.2 1858a211.2 211.2 0 0 1-149.6 61.9Z"
+                                            />
+                                        </svg>
+                                        Dashboard
+                                    </Link>
+                                </li>
                                 <li>
                                     <Link
                                         className="group flex items-center gap-x-2 text-sm text-black hover:scale-105 hover:text-neutral-700"

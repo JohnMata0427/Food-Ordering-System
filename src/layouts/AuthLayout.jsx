@@ -12,8 +12,8 @@ export default function AuthLayout() {
     }, []);
 
     return (
-        <main className="flex min-h-screen w-full content-center justify-center">
-            <div className="hidden min-h-screen w-3/5 bg-[url('/fondo-autenticacion.png')] bg-cover bg-center bg-no-repeat sm:block"></div>
+        <main className="flex min-h-screen">
+            <div className="hidden min-h-screen w-3/5 bg-[url('/fondo-autenticacion.png')] bg-cover bg-center bg-no-repeat md:block"></div>
             <Outlet />
         </main>
     );

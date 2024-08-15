@@ -9,7 +9,6 @@ import NotFound from "@pages/404";
 import Home from "@pages/Home";
 import Recovery from "@pages/auth/Recovery";
 import Login from "@pages/auth/Login";
-import ConfirmEmail from "@pages/auth/ConfirmEmail";
 import EmailConfirmed from "@pages/auth/EmailConfirmed";
 import ActualizarPerfil from "@pages/chef/ActualizarPerfil";
 import PerfilChef from "@pages/chef/PerfilChef";
@@ -19,7 +18,6 @@ import Drinks from "@pages/Drinks";
 import Snacks from "@pages/Snacks";
 import Ordenar from "@pages/Ordenar";
 import Contacto from "@pages/Contacto";
-import Verification from "@pages/auth/Verification";
 import Reset from "@pages/auth/Reset";
 import Historial from "@pages/student/Historial";
 import DetallePedido from "@pages/student/DetallePedido";
@@ -56,19 +54,11 @@ export default function App() {
                                             />
                                             <Route
                                                 path="confirmar-email/:token"
-                                                element={<ConfirmEmail />}
-                                            />
-                                            <Route
-                                                path="email-confirmado"
                                                 element={<EmailConfirmed />}
                                             />
                                             <Route
-                                                path="recuperar-contraseña"
+                                                path="recuperar-contraseña/*"
                                                 element={<Recovery />}
-                                            />
-                                            <Route
-                                                path="codigo-verificacion"
-                                                element={<Verification />}
                                             />
                                             <Route
                                                 path="restablecer-contraseña"
@@ -139,16 +129,16 @@ export default function App() {
                                             />
                                         </Route>
                                         <Route
-                                            path="/chef"
+                                            path="/chef/*"
                                             element={<ChefLayout />}
                                         >
                                             <Route
                                                 index
-                                                path="home"
+                                                path="dashboard"
                                                 element={<h1>Home</h1>}
                                             />
                                             <Route
-                                                path="add-producto"
+                                                path="añadir-producto"
                                                 element={
                                                     <AddProductComponent />
                                                 }

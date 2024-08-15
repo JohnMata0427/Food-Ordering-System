@@ -9,8 +9,12 @@ import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
 import PasswordInput from "../../components/PasswordInput";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+    const navigate = useNavigate();
+    const [enviar, setEnviar] = useState(false);
+
     const [form, setForm] = useState({
         nombre: "",
         apellido: "",
@@ -42,16 +46,15 @@ export default function Register() {
 
         axios
             .post(`${import.meta.env.VITE_BACKEND_URL}/registro`, form)
-            .then((response) => {
-                console.log(response);
+            .then(() => {
+                setEnviar(true);
                 setMensaje({
                     respuesta:
-                        "Usuario registrado correctamente, revise su correo electrónico para activar su cuenta",
+                        "Registro exitoso, verifica tu correo electrónico",
                     exito: true,
                 });
             })
             .catch((error) => {
-                console.log(error);
                 setMensaje({
                     respuesta: error.response.data.msg,
                     exito: false,
@@ -61,141 +64,160 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex w-full flex-col items-center justify-center py-4 sm:w-2/5">
-                <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
-                <h1 className="mb-2 pb-5 pt-2 text-center text-2xl font-semibold uppercase">
-                    Registro Chef
-                </h1>
+            {!enviar ? (
+                <div className="flex w-full flex-col items-center justify-center py-4 md:w-2/5">
+                    <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
+                    <h1 className="mb-2 pb-5 pt-2 text-center text-2xl font-semibold uppercase">
+                        Registro Chef
+                    </h1>
 
-                <form
-                    className="flex w-3/4 flex-col items-center gap-y-8 sm:w-[65%]"
-                    onSubmit={handleSubmit}
-                >
-                    <div className="flex w-full flex-col gap-y-4">
-                        <div className="relative">
-                            <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
-                                src={usuarioIcon}
-                                alt="Icono de usuario"
-                            />
-                            <input
-                                id="nombre"
-                                type="text"
-                                name="nombre"
-                                value={form.nombre || ""}
+                    <form
+                        className="flex w-3/4 flex-col items-center gap-y-8"
+                        onSubmit={handleSubmit}
+                    >
+                        <div className="flex w-full flex-col gap-y-4">
+                            <div className="relative">
+                                <img
+                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    src={usuarioIcon}
+                                    alt="Icono de usuario"
+                                />
+                                <input
+                                    id="nombre"
+                                    type="text"
+                                    name="nombre"
+                                    value={form.nombre || ""}
+                                    onChange={handleChange}
+                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    placeholder="Ingrese su nombre"
+                                    required
+                                />
+                            </div>
+
+                            <div className="relative">
+                                <img
+                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    src={usuarioIcon}
+                                    alt="Icono de usuario"
+                                />
+                                <input
+                                    id="apellido"
+                                    type="text"
+                                    name="apellido"
+                                    value={form.apellido || ""}
+                                    onChange={handleChange}
+                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    placeholder="Ingrese su apellido"
+                                    required
+                                />
+                            </div>
+
+                            <div className="relative">
+                                <img
+                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    src={telefonoIcon}
+                                    alt="Icono de telefono"
+                                />
+                                <input
+                                    id="telefono"
+                                    type="tel"
+                                    name="telefono"
+                                    value={form.telefono || ""}
+                                    onChange={handleChange}
+                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    placeholder="Ingrese su número de teléfono"
+                                    required
+                                />
+                            </div>
+
+                            <div className="relative">
+                                <img
+                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    src={correoIcon}
+                                    alt="Icono de correo"
+                                />
+                                <input
+                                    id="email"
+                                    name="email"
+                                    value={form.email || ""}
+                                    onChange={handleChange}
+                                    type="email"
+                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    placeholder="Ingrese su correo electrónico"
+                                    required
+                                />
+                            </div>
+
+                            <PasswordInput
+                                value={form.password}
                                 onChange={handleChange}
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
-                                placeholder="Ingrese su nombre"
-                                required
+                            />
+                            <PasswordInput
+                                value={form.confirmPassword}
+                                onChange={handleChange}
+                                placeholder="Confirme su contraseña"
+                                name="confirmPassword"
                             />
                         </div>
 
-                        <div className="relative">
-                            <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
-                                src={usuarioIcon}
-                                alt="Icono de usuario"
-                            />
-                            <input
-                                id="apellido"
-                                type="text"
-                                name="apellido"
-                                value={form.apellido || ""}
-                                onChange={handleChange}
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
-                                placeholder="Ingrese su apellido"
-                                required
-                            />
-                        </div>
+                        {mensaje.respuesta && (
+                            <Alerta exito={mensaje.exito}>
+                                {mensaje.respuesta}
+                            </Alerta>
+                        )}
 
-                        <div className="relative">
-                            <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
-                                src={telefonoIcon}
-                                alt="Icono de telefono"
-                            />
-                            <input
-                                id="telefono"
-                                type="tel"
-                                name="telefono"
-                                value={form.telefono || ""}
-                                onChange={handleChange}
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
-                                placeholder="Ingrese su número de teléfono"
-                                required
-                            />
-                        </div>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <CustomButton
+                                texto="Registrar"
+                                color="yellow"
+                                masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
+                            >
+                                <svg className="size-5" viewBox="0 0 33 31">
+                                    <path
+                                        className="fill-black group-hover:fill-primary"
+                                        d="M31.5 13.3 2.3 0A1.5 1.5 0 0 0 .8.3C.5.5.3.7.2 1a2 2 0 0 0-.2.8v8.4c0 .4.1.8.4 1.2.2.3.6.5 1 .6l15.9 3.2h.1v.5h-.1L1.3 19c-.3 0-.7.3-1 .6-.2.3-.3.7-.3 1.1v8.4c0 .3 0 .6.2.8l.5.7a1.5 1.5 0 0 0 1.6.1l29.2-13c.4-.2.7-.5 1-1a2.5 2.5 0 0 0 0-2.5l-1-1Z"
+                                    />
+                                </svg>
+                            </CustomButton>
+                            <span className="text-sm">
+                                ¿Tienes una cuenta?{" "}
+                                <Link
+                                    className="font-bold text-secondary hover:underline"
+                                    to="/auth/iniciar-sesion"
+                                >
+                                    Inicia sesión
+                                </Link>
+                            </span>
 
-                        <div className="relative">
-                            <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
-                                src={correoIcon}
-                                alt="Icono de correo"
-                            />
-                            <input
-                                id="email"
-                                name="email"
-                                value={form.email || ""}
-                                onChange={handleChange}
-                                type="email"
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
-                                placeholder="Ingrese su correo electrónico"
-                                required
-                            />
+                            <Link
+                                className="text-sm font-bold text-secondary hover:underline"
+                                to="/auth/recuperar-contraseña"
+                            >
+                                ¿Olvidaste tu contraseña?
+                            </Link>
                         </div>
-
-                        <PasswordInput
-                            value={form.password}
-                            onChange={handleChange}
-                        />
-                        <PasswordInput
-                            value={form.confirmPassword}
-                            onChange={handleChange}
-                            placeholder="Confirme su contraseña"
-                            name="confirmPassword"
-                        />
-                    </div>
+                    </form>
+                </div>
+            ) : (
+                <div className="flex w-full flex-col items-center justify-center md:w-2/5">
+                    <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
+                    <h1 className="mb-7 mt-2 text-center text-2xl font-semibold uppercase">
+                        Confirmar dirección de correo electrónico
+                    </h1>
+                    <strong className="rounded-lg bg-primary px-6 py-2 font-semibold">
+                        {form.email}
+                    </strong>
+                    <span className="text-center text-sm my-4">
+                        Revisa tu correo electrónico y haz clic en el enlace para confirmar tu dirección de correo electrónico
+                    </span>
 
                     {mensaje.respuesta && (
                         <Alerta exito={mensaje.exito}>
                             {mensaje.respuesta}
                         </Alerta>
                     )}
-
-                    <div className="flex flex-col items-center gap-y-2">
-                        <CustomButton
-                            texto="Registrar"
-                            color="yellow"
-                            masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
-                        >
-                            <svg width="20" viewBox="0 0 33 31">
-                                <path
-                                    className="fill-black group-hover:fill-primary"
-                                    id="Vector"
-                                    d="M31.4856 13.2879L31.4747 13.2827L2.27979 0.135588C2.03422 0.0239993 1.76702 -0.0197646 1.50206 0.00821157C1.23711 0.0361877 0.982679 0.135031 0.761524 0.295901C0.527868 0.462128 0.33594 0.688816 0.20301 0.955569C0.0700801 1.22232 0.000317936 1.52077 3.7325e-07 1.82406V10.2323C0.00013021 10.6469 0.133478 11.0485 0.37706 11.3678C0.620643 11.6872 0.959199 11.9042 1.33438 11.9816L17.2573 15.1782C17.3199 15.1911 17.3764 15.2273 17.417 15.2806C17.4576 15.3338 17.4798 15.4008 17.4798 15.4699C17.4798 15.5391 17.4576 15.606 17.417 15.6593C17.3764 15.7125 17.3199 15.7487 17.2573 15.7616L1.33506 18.9582C0.959987 19.0354 0.62145 19.2522 0.377759 19.5712C0.134068 19.8903 0.00047853 20.2916 3.7325e-07 20.7061V29.1158C-0.000181173 29.4054 0.0658672 29.6905 0.192218 29.9456C0.31857 30.2006 0.501271 30.4177 0.723926 30.5771C0.991757 30.7704 1.30608 30.8736 1.62764 30.874C1.85119 30.8738 2.07244 30.8251 2.27842 30.7308L31.4727 17.6586L31.4856 17.652C31.8786 17.4686 32.2135 17.1642 32.4487 16.7763C32.684 16.3885 32.8094 15.9343 32.8094 15.4699C32.8094 15.0055 32.684 14.5513 32.4487 14.1635C32.2135 13.7757 31.8786 13.4713 31.4856 13.2879Z"
-                                    fill="black"
-                                />
-                            </svg>
-                        </CustomButton>
-                        <span className="text-sm">
-                            ¿Tienes una cuenta?{" "}
-                            <Link
-                                className="font-bold text-secondary hover:text-secondary/80"
-                                to="/auth/iniciar-sesion"
-                            >
-                                Inicia sesión
-                            </Link>
-                        </span>
-
-                        <Link
-                            className="text-sm font-bold text-secondary hover:text-secondary/80"
-                            to="/auth/recuperar-contraseña"
-                        >
-                            ¿Olvidaste tu contraseña?
-                        </Link>
-                    </div>
-                </form>
-            </div>
+                </div>
+            )}
         </>
     );
 }

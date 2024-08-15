@@ -8,7 +8,7 @@ export default ({ children, exito }) => {
             }`}
         >
             {exito ? (
-                <svg className="size-5" fill="none" viewBox="0 0 40 40">
+                <svg className="size-7" fill="none" viewBox="0 0 40 40">
                     <path
                         className="fill-current text-green-500"
                         d="M20 3.8a16.3 16.3 0 1 0 0 32.5 16.3 16.3 0 0 0 0-32.5Zm8.5 10.8L18 27a1.2 1.2 0 0 1-1 .4 1.3 1.3 0 0 1-1-.4l-4.4-5a1.2 1.2 0 1 1 1.8-1.7l3.6 4 9.5-11.5a1.2 1.2 0 0 1 2 1.7Z"
