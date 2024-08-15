@@ -111,9 +111,38 @@
   
 </details>
 
+<details>
+  <summary>✅ User Roles</summary>
+> - Students 🧑‍🎓👩‍🎓
+> - Chefs 👨‍🍳👩‍🍳
+</details>
+---
 
+<h3 id="sprint-1">👨‍🍳 Sprint 1 - Chef Module</h3>
 
 ---
+
+<h3 id="sprint-2">👩‍🎓 Sprint 2 - Student Module</h3>
+
+---
+
+<h3 id="sprint-3">🏷️🍛 Sprint 3 - Products and Orders Module</h3>
+
+---
+
+<h3 id="sprint-3">🥤🍫 Sprint 4 - Deploy and Documentation</h3>
+
+<details>
+  <summary>▶️ Deploy</summary>
+
+> <div align="center">
+>   <h4>Deployment in Vercel</h4>
+>   <img height="50px" src="https://skillicons.dev/icons?i=vercel">
+> </div>
+>
+> 🌐 Vercel Deployment URL: https://pedidos-comida-esfot.vercel.app/
+
+</details>
 
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
 
