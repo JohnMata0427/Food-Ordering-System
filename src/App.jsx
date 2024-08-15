@@ -23,13 +23,13 @@ import Historial from "@pages/student/Historial";
 import DetallePedido from "@pages/student/DetallePedido";
 import DescripcionProducto from "@pages/DescripcionProducto";
 import { PublicRoute } from "./routes/PublicRoute";
-import DashboardChef from "./pages/chef/DashboardCheftPage";
 import ChefLayout from "./layouts/ChefLayout";
 import AddProductComponent from "./pages/chef/AddProduct";
 import EditarProductoComponent from "./pages/chef/EditarProducto";
 import VerProductoEditar from "./pages/chef/VerProductosEditar";
 import EliminarProducto from "./pages/chef/EliminarProducto";
 import GestionPedidos from "./pages/GestionPedidos";
+import ListarProductos from "./pages/chef/ListarProductos";
 
 export default function App() {
     return (
@@ -134,8 +134,8 @@ export default function App() {
                                         >
                                             <Route
                                                 index
-                                                path="dashboard"
-                                                element={<h1>Home</h1>}
+                                                path="listar-productos"
+                                                element={<ListarProductos />}
                                             />
                                             <Route
                                                 path="añadir-producto"
