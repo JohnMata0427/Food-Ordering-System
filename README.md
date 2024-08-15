@@ -150,6 +150,24 @@
 
 <h3 id="sprint-2">👩‍🎓 Sprint 2 - Student Module</h3>
 
+<details>
+  <summary>✅ Endpoint consumption to display products by category. </summary>
+
+  <ul>
+    <li>Lunch Category </li>
+    <img src="https://github.com/user-attachments/assets/227ebc8e-c64b-48be-b3d4-c53059210dbf" alt="Lunch Category">
+    <li>Category Beverages </li>
+    <img src="https://github.com/user-attachments/assets/bba27c8d-bf1e-4e81-b213-df086278f52a" alt="Category Beverages">
+    <li>Category Snacks </li>
+    <img src="https://github.com/user-attachments/assets/c9eb83a6-16cc-456f-8480-4c27c42c3f36" alt="Category Snacks">
+  </ul>
+</details>
+<details>
+  <summary>✅ Endpoint consumption for contact  </summary>
+  <img src="https://github.com/user-attachments/assets/df4bac09-099b-4652-8b6d-ee4dc4c1f961" alt="Contact">
+</details>
+
+
 ---
 
 <h3 id="sprint-3">🥤🍫 Sprint 3 - Deploy</h3>
