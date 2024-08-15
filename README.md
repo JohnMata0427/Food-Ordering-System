@@ -21,16 +21,26 @@
 
 <details>
   <summary>✅ Definition of requirements and Constraints</summary>
-  > - The frontend has the following profiles: Cook and Student.
-  > - A backend and a series of public and private APIs are available for consumption.
-  > - The cook profile can register and log in.
-  > - The cook profile can manage his/her profile > - The cook profile can manage his/her profile
-  > - The cook profile can manage products
-  > - Student profile can register and log in 
-  > - Student profile can register and log in
-  > - The student profile can add products to cart
-  > - The student profile can checkout
+  <ul>
+    <li>El frontend tiene los siguientes perfiles: Cocinero y Estudiante.</li>
+    <li>Hay un backend y una serie de APIs públicas y privadas disponibles para su consumo.</li>
+    <li>El perfil de Cocinero puede:
+      <ul>
+        <li>Registrarse e iniciar sesión.</li>
+        <li>Gestionar su perfil.</li>
+        <li>Gestionar productos.</li>
+      </ul>
+    </li>
+    <li>El perfil de Estudiante puede:
+      <ul>
+        <li>Registrarse e iniciar sesión.</li>
+        <li>Añadir productos al carrito.</li>
+        <li>Realizar la compra.</li>
+      </ul>
+    </li>
+  </ul>
 </details>
+
 
 ---
 
