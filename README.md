@@ -116,6 +116,7 @@
 > - Students 🧑‍🎓👩‍🎓
 > - Chefs 👨‍🍳👩‍🍳
 </details>
+
 ---
 
 <h3 id="sprint-1">👨‍🍳 Sprint 1 - Chef Module</h3>
