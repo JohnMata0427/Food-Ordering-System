@@ -57,11 +57,11 @@ export default function App() {
                                                 element={<EmailConfirmed />}
                                             />
                                             <Route
-                                                path="recuperar-password/*"
+                                                path="chef/recuperar-password/*"
                                                 element={<Recovery />}
                                             />
                                             <Route
-                                                path="restablecer-password"
+                                                path="chef/restablecer-password"
                                                 element={<Reset />}
                                             />
                                         </Route>
