@@ -144,6 +144,8 @@
 
 </details>
 
+---
+
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
 
 ![Vista Multiplataforma del Sitio](https://github.com/user-attachments/assets/b460007d-3943-4e1e-a7b7-f85a6a7e111d)
