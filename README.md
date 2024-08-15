@@ -137,8 +137,7 @@
 </details>
 <details>
   <summary>✅ Endpoint consumption to edit a product. </summary>
-  <img src="https://github.com/user-attachments/assets/72fed159-261a-4f21-91a9-e1839606ff20
-" alt="Edit a product">
+  <img src="https://github.com/user-attachments/assets/72fed159-261a-4f21-91a9-e1839606ff20" alt="Edit a product">
 </details>
 <details>
   <summary>✅ Endpoint consumption to view order history. </summary>
