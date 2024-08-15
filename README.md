@@ -129,13 +129,11 @@
 </details>
 <details>
   <summary>✅ Consumption of endpoint to list products.</summary>
-  <img src="https://github.com/user-attachments/assets/54ea02e1-ba1f-43ff-9c59-acffee926a4d
-" alt="List Product">
+  <img src="https://github.com/user-attachments/assets/54ea02e1-ba1f-43ff-9c59-acffee926a4d" alt="List Product">
 </details>
 <details>
   <summary>✅ Endpoint consumption to add a product. </summary>
-  <img src="https://github.com/user-attachments/assets/ecdf58bf-8a2b-4d43-a186-448cba3ac85a
-" alt="Add a product">
+  <img src="https://github.com/user-attachments/assets/ecdf58bf-8a2b-4d43-a186-448cba3ac85a" alt="Add a product">
 </details>
 <details>
   <summary>✅ Endpoint consumption to edit a product. </summary>
@@ -144,8 +142,7 @@
 </details>
 <details>
   <summary>✅ Endpoint consumption to view order history. </summary>
-  <img src="https://github.com/user-attachments/assets/db61126b-68e6-4972-b1f4-f702ad0a412c
-" alt="Order history">
+  <img src="https://github.com/user-attachments/assets/db61126b-68e6-4972-b1f4-f702ad0a412c" alt="Order history">
 </details>
 
 
