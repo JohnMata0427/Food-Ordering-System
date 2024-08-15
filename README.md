@@ -123,17 +123,18 @@
 
 <h3 id="sprint-1">👨‍🍳 Sprint 1 - Chef Module</h3>
 
+<details>
+  <summary>✅ Endpoint consumption to log in. </summary>
+  ![image](https://github.com/user-attachments/assets/b8fb8f1a-31e3-4c96-a268-e254a18aba42)
+</details>
+
 ---
 
 <h3 id="sprint-2">👩‍🎓 Sprint 2 - Student Module</h3>
 
 ---
 
-<h3 id="sprint-3">🏷️🍛 Sprint 3 - Products and Orders Module</h3>
-
----
-
-<h3 id="sprint-3">🥤🍫 Sprint 4 - Deploy</h3>
+<h3 id="sprint-3">🥤🍫 Sprint 3 - Deploy</h3>
 
 <details>
   <summary>▶️ Deploy</summary>
