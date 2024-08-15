@@ -19,8 +19,10 @@ export default function Recovery() {
     const [email, setEmail] = useState("");
     const [verificationCode, setVerificationCode] = useState("");
     const [sentEmail, setSentEmail] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
 
         try {
@@ -37,12 +39,14 @@ export default function Recovery() {
                     { verificationCode },
                 );
                 navigate(
-                    `/auth/restablecer-contraseña?i=${response.data.id}&v=${response.data.verificationCode}`,
+                    `/auth/restablecer-password?i=${response.data.id}&v=${response.data.verificationCode}`,
                 );
             }
+            setLoading(false);
             setMensaje({ respuesta: response.data.msg, exito: true });
         } catch ({ response }) {
             setMensaje({ respuesta: response.data.msg, exito: false });
+            setLoading(false);
         }
     };
 
@@ -54,7 +58,7 @@ export default function Recovery() {
                         `${import.meta.env.VITE_BACKEND_URL}/chef/recuperarpassword/${location[3]}`,
                     );
                     navigate(
-                        `/auth/restablecer-contraseña?i=${response.data.id}&v=${response.data.verificationCode}`,
+                        `/auth/restablecer-password?i=${response.data.id}&v=${response.data.verificationCode}`,
                     );
                 } catch ({ response }) {
                     console.log(response)
@@ -128,17 +132,21 @@ export default function Recovery() {
                     )}
 
                     <div className="flex flex-col items-center gap-y-2">
-                        <CustomButton
-                            texto="Enviar"
+                    <CustomButton
+                            texto={loading ? "Cargando" : "Enviar Correo"}
                             color="yellow"
-                            masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2"
+                            masEstilos="group justify-center w-full gap-x-2 rounded-xl mb-2"
                         >
-                            <svg className="size-5" viewBox="0 0 33 31">
-                                <path
-                                    className="fill-black group-hover:fill-primary"
-                                    d="M31.5 13.3 2.3 0A1.5 1.5 0 0 0 .8.3C.5.5.3.7.2 1a2 2 0 0 0-.2.8v8.4c0 .4.1.8.4 1.2.2.3.6.5 1 .6l15.9 3.2h.1v.5h-.1L1.3 19c-.3 0-.7.3-1 .6-.2.3-.3.7-.3 1.1v8.4c0 .3 0 .6.2.8l.5.7a1.5 1.5 0 0 0 1.6.1l29.2-13c.4-.2.7-.5 1-1a2.5 2.5 0 0 0 0-2.5l-1-1Z"
-                                />
-                            </svg>
+                            {loading ? (
+                                <PacmanLoader size={10}/>
+                            ) : (
+                                <svg className="size-5" viewBox="0 0 33 31">
+                                    <path
+                                        className="fill-black group-hover:fill-primary"
+                                        d="M31.5 13.3 2.3 0A1.5 1.5 0 0 0 .8.3C.5.5.3.7.2 1a2 2 0 0 0-.2.8v8.4c0 .4.1.8.4 1.2.2.3.6.5 1 .6l15.9 3.2h.1v.5h-.1L1.3 19c-.3 0-.7.3-1 .6-.2.3-.3.7-.3 1.1v8.4c0 .3 0 .6.2.8l.5.7a1.5 1.5 0 0 0 1.6.1l29.2-13c.4-.2.7-.5 1-1a2.5 2.5 0 0 0 0-2.5l-1-1Z"
+                                    />
+                                </svg>
+                            )}
                         </CustomButton>
                         <Link to="/iniciar-sesion">
                         <CustomButton
