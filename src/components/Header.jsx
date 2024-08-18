@@ -42,18 +42,6 @@ export default function Header() {
                     <li>
                         <Link
                             className={`${
-                                urlActual === "/ordenar"
-                                    ? "text-primary"
-                                    : "text-white hover:text-primary"
-                            } text-sm`}
-                            to="/ordenar"
-                        >
-                            Ordenar
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className={`${
                                 urlActual === "/contacto"
                                     ? "text-primary"
                                     : "text-white hover:text-primary"

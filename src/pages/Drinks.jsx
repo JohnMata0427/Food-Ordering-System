@@ -42,7 +42,7 @@ export default function Drinks() {
                     }}
                 >
                     {drinks.map((drink) => (
-                        <div
+                        <Link
                             key={drink._id}
                             className="flex items-center justify-center"
                         >
@@ -54,7 +54,7 @@ export default function Drinks() {
                                 imageUrl={drink.foto.url}
                                 to={`/producto/${drink._id}`}
                             />
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>

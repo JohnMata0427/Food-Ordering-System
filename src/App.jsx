@@ -16,7 +16,6 @@ import Categorias from "@pages/Categorias";
 import Food from "@pages/Food";
 import Drinks from "@pages/Drinks";
 import Snacks from "@pages/Snacks";
-import Ordenar from "@pages/Ordenar";
 import Contacto from "@pages/Contacto";
 import Reset from "@pages/auth/Reset";
 import Historial from "@pages/student/Historial";
@@ -26,7 +25,6 @@ import { PublicRoute } from "./routes/PublicRoute";
 import ChefLayout from "./layouts/ChefLayout";
 import AddProducts from "./pages/chef/AñadirProductos";
 import EditarProducts from "./pages/chef/EditarProductos";
-import GestionPedidos from "./pages/GestionPedidos";
 import ListarProductos from "./pages/chef/ListarProductos";
 
 export default function App() {
@@ -102,10 +100,6 @@ export default function App() {
                                             <Route
                                                 path="categorias/postres"
                                                 element={<Snacks />}
-                                            />
-                                            <Route
-                                                path="ordenar"
-                                                element={<Ordenar />}
                                             />
                                             <Route
                                                 path="producto/:id"

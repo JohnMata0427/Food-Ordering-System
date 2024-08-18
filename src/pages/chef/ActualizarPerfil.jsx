@@ -3,7 +3,6 @@ import usuarioIcon from "@assets/icons/usuario.svg";
 import correoIcon from "@assets/icons/correo.svg";
 import documentoIcon from "@assets/icons/documento.svg";
 import fondoPerfil from "@assets/ui/fondo-perfil.png";
-import fotoPerfil from "@assets/ui/Samuel.png";
 import Alerta from "@components/Alerta";
 import { CustomButton } from "@components/CustomButton";
 import { AuthContext } from "@contexts/AuthProvider";

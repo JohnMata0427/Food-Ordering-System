@@ -40,7 +40,7 @@ export default function Food() {
                     }}
                 >
                     {food.map((food) => (
-                        <div
+                        <Link
                             key={food._id}
                             className="flex items-center justify-center"
                         >
@@ -52,7 +52,7 @@ export default function Food() {
                                 imageUrl={food.foto.url}
                                 to={`/producto/${food._id}`}
                             />
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>

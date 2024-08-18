@@ -1,5 +1,4 @@
 import fondoPerfil from "@assets/ui/fondo-perfil.png";
-import fotoPerfil from "@assets/ui/Samuel.png";
 import { CustomButton } from "@components/CustomButton";
 import { useContext } from "react";
 import { Link } from "react-router-dom";

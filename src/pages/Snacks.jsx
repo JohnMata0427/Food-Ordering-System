@@ -41,7 +41,7 @@ export default function Snacks() {
                     }}
                 >
                     {snacks.map((snack) => (
-                        <div
+                        <Link
                             key={snack._id}
                             className="flex items-center justify-center"
                         >
@@ -53,7 +53,7 @@ export default function Snacks() {
                                 imageUrl={snack.foto.url}
                                 to={`/producto/${snack._id}`}
                             />
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>
