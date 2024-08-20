@@ -91,7 +91,7 @@ export default function ActualizarPerfil() {
                     <div className="flex w-full flex-col gap-y-4">
                         <div className="relative">
                             <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
+                                className="absolute left-4 top-3.5 my-auto size-4"
                                 src={usuarioIcon}
                                 alt="Icono de usuario"
                             />
@@ -101,15 +101,14 @@ export default function ActualizarPerfil() {
                                 name="nombre"
                                 value={form.nombre || ""}
                                 onChange={handleChange}
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                 placeholder="Nombre"
-                                required
                             />
                         </div>
 
                         <div className="relative">
                             <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
+                                className="absolute left-4 top-3.5 my-auto size-4"
                                 src={usuarioIcon}
                                 alt="Icono de usuario"
                             />
@@ -119,15 +118,14 @@ export default function ActualizarPerfil() {
                                 name="apellido"
                                 value={form.apellido || ""}
                                 onChange={handleChange}
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                 placeholder="Apellido"
-                                required
                             />
                         </div>
 
                         <div className="relative">
                             <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
+                                className="absolute left-4 top-3.5 my-auto size-4"
                                 src={correoIcon}
                                 alt="Icono de correo"
                             />
@@ -135,7 +133,7 @@ export default function ActualizarPerfil() {
                                 id="email"
                                 name="email"
                                 type="email"
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                 placeholder="Correo Electrónico"
                                 value={form.email}
                                 onChange={handleChange}
@@ -144,7 +142,7 @@ export default function ActualizarPerfil() {
 
                         <div className="relative">
                             <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
+                                className="absolute left-4 top-3.5 my-auto size-4"
                                 src={usuarioIcon}
                                 alt="Icono de contraseña"
                             />
@@ -152,7 +150,7 @@ export default function ActualizarPerfil() {
                                 id="especialidad"
                                 name="especialidad"
                                 type="text"
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                 placeholder="Especialidad"
                                 value={form.especialidad}
                                 onChange={handleChange}

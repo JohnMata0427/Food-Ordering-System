@@ -48,7 +48,7 @@ export default function Reset() {
                     Restablecer Contraseña
                 </h1>
                 <form
-                    className="flex w-3/4 flex-col items-center gap-y-8 sm:w-[65%]"
+                    className="flex w-3/4 flex-col items-center gap-y-8"
                     onSubmit={handleSubmit}
                 >
                     <div className="flex w-full flex-col gap-y-4">
@@ -92,7 +92,6 @@ export default function Reset() {
                             <CustomButton
                                 texto="Volver al inicio"
                                 color="black"
-                                hover="white"
                                 masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2 text-white"
                             >
                                 <svg className="size-5" viewBox="0 0 40 40">

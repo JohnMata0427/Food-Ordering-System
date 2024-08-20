@@ -5,31 +5,34 @@ export default function PasswordInput({
     name,
     value,
     onChange,
-    masEstilos,
     placeholder,
+    error,
 }) {
     const [visible, setVisible] = useState(false);
 
     return (
         <div className="relative">
             <img
-                className="absolute inset-y-0 left-4 my-auto size-4"
+                className="absolute left-4 top-3.5 size-4"
                 src={contraseñaIcon}
                 alt="Icono de contraseña"
             />
             <input
                 id={name || "password"}
                 name={name || "password"}
-                value={value || ""}
+                value={value}
                 onChange={onChange}
                 type={visible ? "text" : "password"}
-                className={`text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800 ${masEstilos}`}
+                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                 placeholder={placeholder || "Ingrese una contraseña"}
-                required
+                minLength={8}
             />
+            <p class="mt-2 hidden text-sm text-pink-700 peer-invalid:block">
+                {error}
+            </p>
             <svg
                 onClick={() => setVisible(!visible)}
-                className="absolute inset-y-0 right-4 my-auto size-5 cursor-pointer *:fill-black"
+                className="absolute right-4 top-3.5 size-5 cursor-pointer *:fill-black"
                 viewBox="0 0 513 513"
             >
                 {visible ? (

@@ -22,7 +22,7 @@ export default function ListarProductos() {
         } catch ({ response }) {
             setMensaje({ response: response.data.msg, exito: false });
         }
-    }
+    };
 
     const getProductos = async () => {
         try {
@@ -95,7 +95,7 @@ export default function ListarProductos() {
                                                 `/chef/editar-producto/${producto._id}`,
                                             );
                                         }}
-                                        className="size-5 *:fill-black cursor-pointer"
+                                        className="size-5 cursor-pointer *:fill-black"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 40 40"
                                     >
@@ -105,7 +105,7 @@ export default function ListarProductos() {
                                         onClick={() => {
                                             handleDelete(producto._id);
                                         }}
-                                        className="size-5 *:fill-red-700 cursor-pointer"
+                                        className="size-5 cursor-pointer *:fill-red-700"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 35 40"
                                     >

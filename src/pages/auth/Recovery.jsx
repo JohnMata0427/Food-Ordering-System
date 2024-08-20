@@ -63,7 +63,7 @@ export default function Recovery() {
                         `/auth/restablecer-password?i=${response.data.id}&v=${response.data.verificationCode}`,
                     );
                 } catch ({ response }) {
-                    console.log(response)
+                    console.log(response);
                     setMensaje({ respuesta: response.data.msg, exito: false });
                 }
             };
@@ -80,14 +80,14 @@ export default function Recovery() {
                 </h1>
 
                 <form
-                    className="flex w-3/4 flex-col items-center gap-y-4 sm:w-[65%]"
+                    className="flex w-3/4 flex-col items-center gap-y-4"
                     onSubmit={handleSubmit}
                 >
                     <div className="relative w-full">
                         {!sentEmail ? (
                             <>
                                 <img
-                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    className="absolute left-4 top-3.5 my-auto size-4"
                                     src={correoIcon}
                                     alt="Icono de correo"
                                 />
@@ -99,15 +99,18 @@ export default function Recovery() {
                                         setEmail(e.target.value);
                                     }}
                                     type="email"
-                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                     placeholder="Ingrese su correo electrónico"
-                                    required
                                 />
+                                <p class="mt-2 hidden text-sm text-pink-700 peer-invalid:block">
+                                    Ingrese un correo válido (ej:
+                                    usuario@ejemplo.com)
+                                </p>
                             </>
                         ) : (
                             <>
                                 <img
-                                    className="absolute inset-y-0 left-4 my-auto size-4"
+                                    className="absolute left-4 top-3.5 my-auto size-4"
                                     src={verificationIcon}
                                     alt="Icono de verificación"
                                 />
@@ -119,9 +122,8 @@ export default function Recovery() {
                                         setVerificationCode(e.target.value);
                                     }}
                                     type="text"
-                                    className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                    className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                     placeholder="Ingrese el código de verificación"
-                                    required
                                 />
                             </>
                         )}
@@ -134,13 +136,13 @@ export default function Recovery() {
                     )}
 
                     <div className="flex flex-col items-center gap-y-2">
-                    <CustomButton
+                        <CustomButton
                             texto={loading ? "Cargando" : "Enviar Correo"}
                             color="yellow"
                             masEstilos="group justify-center w-full gap-x-2 rounded-xl mb-2"
                         >
                             {loading ? (
-                                <PacmanLoader size={10}/>
+                                <PacmanLoader size={10} />
                             ) : (
                                 <svg className="size-5" viewBox="0 0 33 31">
                                     <path
@@ -151,23 +153,23 @@ export default function Recovery() {
                             )}
                         </CustomButton>
                         <Link to="/iniciar-sesion">
-                        <CustomButton
-                            texto="Volver al inicio"
-                            color="black"
-                            hover="white"
-                            masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2 text-white"
-                        >
-                            <svg className="size-5" viewBox="0 0 40 40">
-                                <path
-                                    className="fill-white group-hover:fill-black"
-                                    d="M20.4 8a.6.6 0 0 0-.8 0L5.2 21.6a.6.6 0 0 0-.2.4v13a2.5 2.5 0 0 0 2.5 2.5H15a1.3 1.3 0 0 0 1.3-1.3V25.6a.6.6 0 0 1 .6-.6H23a.6.6 0 0 1 .6.6v10.6a1.3 1.3 0 0 0 1.3 1.3h7.5A2.5 2.5 0 0 0 35 35V22.1a.6.6 0 0 0-.2-.4L20.4 7.9Z"
-                                />
-                                <path
-                                    className="fill-white group-hover:fill-black"
-                                    d="m38.4 19-5.9-5.5V5a1.3 1.3 0 0 0-1.2-1.3h-3.8A1.3 1.3 0 0 0 26.3 5v2.5l-4.6-4.3c-.4-.5-1-.7-1.7-.7s-1.3.2-1.7.7L1.7 19c-.5.4-.6 1.2-.2 1.7a1.3 1.3 0 0 0 1.9.1L19.6 5.4a.6.6 0 0 1 .8 0L36.6 21a1.3 1.3 0 0 0 1.8 0c.5-.5.5-1.3 0-1.8Z"
-                                />
-                            </svg>
-                        </CustomButton></Link>
+                            <CustomButton
+                                texto="Volver al inicio"
+                                color="black"
+                                masEstilos="group w-full justify-center gap-x-2 rounded-xl mb-2 text-white"
+                            >
+                                <svg className="size-5" viewBox="0 0 40 40">
+                                    <path
+                                        className="fill-white group-hover:fill-black"
+                                        d="M20.4 8a.6.6 0 0 0-.8 0L5.2 21.6a.6.6 0 0 0-.2.4v13a2.5 2.5 0 0 0 2.5 2.5H15a1.3 1.3 0 0 0 1.3-1.3V25.6a.6.6 0 0 1 .6-.6H23a.6.6 0 0 1 .6.6v10.6a1.3 1.3 0 0 0 1.3 1.3h7.5A2.5 2.5 0 0 0 35 35V22.1a.6.6 0 0 0-.2-.4L20.4 7.9Z"
+                                    />
+                                    <path
+                                        className="fill-white group-hover:fill-black"
+                                        d="m38.4 19-5.9-5.5V5a1.3 1.3 0 0 0-1.2-1.3h-3.8A1.3 1.3 0 0 0 26.3 5v2.5l-4.6-4.3c-.4-.5-1-.7-1.7-.7s-1.3.2-1.7.7L1.7 19c-.5.4-.6 1.2-.2 1.7a1.3 1.3 0 0 0 1.9.1L19.6 5.4a.6.6 0 0 1 .8 0L36.6 21a1.3 1.3 0 0 0 1.8 0c.5-.5.5-1.3 0-1.8Z"
+                                    />
+                                </svg>
+                            </CustomButton>
+                        </Link>
                         <span className="text-sm">
                             ¿Tienes una cuenta?{" "}
                             <Link

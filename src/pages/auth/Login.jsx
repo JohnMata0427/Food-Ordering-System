@@ -58,13 +58,13 @@ export default function Login() {
                 </h1>
 
                 <form
-                    className="flex w-3/4 flex-col items-center sm:w-[65%]"
+                    className="flex w-3/4 flex-col items-center"
                     onSubmit={handleSubmit}
                 >
                     <div className="mb-4 flex w-full flex-col gap-y-4">
                         <div className="relative">
                             <img
-                                className="absolute inset-y-0 left-4 my-auto size-4"
+                                className="absolute left-4 top-3.5 my-auto size-4"
                                 src={correoIcon}
                                 alt="Icono de correo"
                             />
@@ -74,10 +74,13 @@ export default function Login() {
                                 value={form.email || ""}
                                 onChange={handleChange}
                                 type="email"
-                                className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 hover:border-slate-800"
+                                className="text-md peer w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 shadow-md shadow-black/20 invalid:border-pink-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:invalid:border-pink-700 focus:invalid:ring-pink-700 focus:invalid:ring-opacity-50"
                                 placeholder="Ingrese su correo electrónico"
-                                required
                             />
+                            <p class="mt-2 hidden text-sm text-pink-700 peer-invalid:block">
+                                Ingrese un correo válido (ej:
+                                usuario@ejemplo.com)
+                            </p>
                         </div>
 
                         <PasswordInput
@@ -99,7 +102,7 @@ export default function Login() {
                             masEstilos="group justify-center w-full gap-x-2 rounded-xl mb-2"
                         >
                             {loading ? (
-                                <PacmanLoader size={10}/>
+                                <PacmanLoader size={10} />
                             ) : (
                                 <svg className="size-5" viewBox="0 0 33 31">
                                     <path

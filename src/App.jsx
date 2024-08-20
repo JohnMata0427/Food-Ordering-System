@@ -131,15 +131,11 @@ export default function App() {
                                             />
                                             <Route
                                                 path="añadir-producto"
-                                                element={
-                                                    <AddProducts />
-                                                }
+                                                element={<AddProducts />}
                                             />
                                             <Route
                                                 path="editar-producto/:id"
-                                                element={
-                                                    <EditarProducts />
-                                                }
+                                                element={<EditarProducts />}
                                             />
                                         </Route>
                                     </Routes>

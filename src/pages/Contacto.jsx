@@ -57,7 +57,6 @@ export default function Contacto() {
                                 onChange={handleChange}
                                 className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 hover:border-slate-800"
                                 placeholder="Ingrese su nombre"
-                                required
                             />
                         </div>
 
@@ -75,7 +74,6 @@ export default function Contacto() {
                                 type="email"
                                 className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 hover:border-slate-800"
                                 placeholder="Ingrese su correo electrónico"
-                                required
                             />
                         </div>
 
@@ -93,7 +91,6 @@ export default function Contacto() {
                                 type="text"
                                 className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 hover:border-slate-800"
                                 placeholder="Asunto"
-                                required
                             />
                         </div>
 
@@ -111,7 +108,6 @@ export default function Contacto() {
                                 type="text"
                                 className="text-md w-full rounded-xl border border-black p-2.5 pl-11 placeholder-slate-700 hover:border-slate-800"
                                 placeholder="Mensaje"
-                                required
                             />
                         </div>
                     </div>

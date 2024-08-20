@@ -43,7 +43,6 @@ export default function NumberInput({ value, size, max }) {
                     if (target.value > 0 && target.value < 30)
                         setCount(target.value);
                 }}
-                required
             />
             <button
                 onClick={() => {

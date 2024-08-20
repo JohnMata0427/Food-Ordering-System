@@ -35,12 +35,12 @@ export default function ConfirmEmail() {
 
     return (
         <>
-            <div className="flex w-full flex-col items-center justify-center py-4 sm:w-2/5 px-20">
+            <div className="flex w-full flex-col items-center justify-center px-20 py-4 sm:w-2/5">
                 <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
                 <h1 className="mb-7 mt-2 text-center text-2xl font-semibold uppercase">
                     Confirmación de Correo Electrónico
                 </h1>
-                <h5 className="text-center text-sm mb-5">
+                <h5 className="mb-5 text-center text-sm">
                     {mensaje.exito
                         ? "¡Genial! Ya puedes iniciar sesión regresa al inicio."
                         : "Ups! Algo salió mal, por favor verifica el enlace."}
