@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import Logo from "../assets/ui/logo.png";
+import Logo from "@assets/ui/logo.png";
 
 export default function ChefLayout() {
     return (

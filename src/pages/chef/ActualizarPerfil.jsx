@@ -80,7 +80,7 @@ export default function ActualizarPerfil() {
             </div>
 
             <div className="flex w-full flex-col justify-center sm:w-3/5 sm:pl-6">
-                <h1 className="mb-7 mt-4 text-center text-2xl font-semibold sm:text-start">
+                <h1 className="mb-7 mt-2 text-center text-2xl font-semibold sm:text-start">
                     Editar Perfil
                 </h1>
 

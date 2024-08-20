@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import FormProductos from "../../components/FormProductos";
+import FormProductos from "@components/FormProductos";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";

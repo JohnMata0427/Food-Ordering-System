@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Alerta from "@components/Alerta";
 import axios from "axios";
-import PasswordInput from "../../components/PasswordInput";
+import PasswordInput from "@components/PasswordInput";
 import { PacmanLoader } from "react-spinners";
 
 export default function Register() {
@@ -74,7 +74,7 @@ export default function Register() {
             {!enviar ? (
                 <div className="flex w-full flex-col items-center justify-center py-4 md:w-2/5">
                     <img className="h-40" src={chefsImg} alt="Icono de Chefs" />
-                    <h1 className="mb-2 pb-5 pt-2 text-center text-2xl font-semibold uppercase">
+                    <h1 className="mb-7 mt-2 text-center text-2xl font-semibold uppercase">
                         Registro Chef
                     </h1>
 

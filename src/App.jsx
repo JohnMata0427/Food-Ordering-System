@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PrivateRoute } from "./routes/PrivateRoute";
+import { PrivateRoute } from "@routes/PrivateRoute";
 import { AuthProvider } from "@contexts/AuthProvider";
 import AuthLayout from "@layouts/AuthLayout";
 import UserLayout from "@layouts/UserLayout";
@@ -21,11 +21,11 @@ import Reset from "@pages/auth/Reset";
 import Historial from "@pages/student/Historial";
 import DetallePedido from "@pages/student/DetallePedido";
 import DescripcionProducto from "@pages/DescripcionProducto";
-import { PublicRoute } from "./routes/PublicRoute";
-import ChefLayout from "./layouts/ChefLayout";
-import AddProducts from "./pages/chef/AñadirProductos";
-import EditarProducts from "./pages/chef/EditarProductos";
-import ListarProductos from "./pages/chef/ListarProductos";
+import { PublicRoute } from "@routes/PublicRoute";
+import ChefLayout from "@layouts/ChefLayout";
+import AddProducts from "@pages/chef/AñadirProductos";
+import EditarProducts from "@pages/chef/EditarProductos";
+import ListarProductos from "@pages/chef/ListarProductos";
 
 export default function App() {
     return (

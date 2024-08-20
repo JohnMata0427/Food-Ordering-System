@@ -2,7 +2,7 @@ import fondoPerfil from "@assets/ui/fondo-perfil.png";
 import { CustomButton } from "@components/CustomButton";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthProvider";
+import { AuthContext } from "@contexts/AuthProvider";
 
 export default function PerfilChef() {
     const { auth } = useContext(AuthContext);

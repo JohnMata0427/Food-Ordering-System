@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Alerta from "../../components/Alerta";
+import Alerta from "@components/Alerta";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 

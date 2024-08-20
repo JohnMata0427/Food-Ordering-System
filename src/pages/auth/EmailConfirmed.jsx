@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Alerta from "../../components/Alerta";
+import Alerta from "@components/Alerta";
 import { useState } from "react";
 
 export default function ConfirmEmail() {

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { CustomButton } from "../components/CustomButton";
-import NumberInput from "../components/NumberInput";
+import { CustomButton } from "@components/CustomButton";
+import NumberInput from "@components/NumberInput";
 import { useLocation } from "react-router-dom";
 
 export default function DescripcionProducto() {
