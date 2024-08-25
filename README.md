@@ -19,7 +19,7 @@
 
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
 
-![Si](https://github.com/user-attachments/assets/6474767b-09f4-4489-8335-dda608f549eb)
+![Page Preview](https://github.com/user-attachments/assets/f9fece7f-4f61-4853-b233-0017e8395692)
 
 ---
 
