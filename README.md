@@ -6,13 +6,20 @@
 
 ---
 
-> [!IMPORTANT] > **Problematic Introduction**
+> [!IMPORTANT]
+> **Problematic Introduction**
 >
 > The lunchtime rush at ESFOT poses a significant operational challenge.
 > The influx of students seeking to order their meals within a limited timeframe (11 AM to 2 PM) results in the formation of long queues.
 > These extended wait times not only inconvenience students but also negatively impact their overall dining experience.
 > Additionally, the manual ordering process, with its inherent limitations, can lead to inefficiencies and potential errors.
 > The existing system struggles to accommodate the high volume of orders during peak hours, leading to delays and frustration among students.
+
+---
+
+### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
+
+![Si](https://github.com/user-attachments/assets/6474767b-09f4-4489-8335-dda608f549eb)
 
 ---
 
@@ -181,7 +188,3 @@
 </details>
 
 ---
-
-### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
-
-![Vista Multiplataforma del Sitio](https://github.com/user-attachments/assets/b460007d-3943-4e1e-a7b7-f85a6a7e111d)
