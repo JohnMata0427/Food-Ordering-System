@@ -1,9 +1,5 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
-export const PublicRoute = ({ children }) => {
-    return !localStorage.getItem("token") ? (
-        children
-    ) : (
-        <Navigate to="/inicio" />
-    );
+export const PublicRoute = ({ children, token }) => {
+  return !token ? children : <Navigate to="/inicio" />;
 };
