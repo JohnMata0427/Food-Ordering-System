@@ -4,9 +4,8 @@
   <img height="35px" src="https://github.com/JohnMata0427/Food-Ordering-API-RESTful/assets/150484680/842b4e83-fd68-4f5e-8b20-e644053a69cf" alt="Logo">
 </h1>
 
----
-
-> [!IMPORTANT] > **Problematic Introduction**
+> [!IMPORTANT]
+> **Problematic Introduction**
 >
 > The lunchtime rush at ESFOT poses a significant operational challenge.
 > The influx of students seeking to order their meals within a limited timeframe (11 AM to 2 PM) results in the formation of long queues.
@@ -17,7 +16,6 @@
 ---
 
 ### 👩🏻‍💻👨🏻‍💻 Multiplatform Website Preview
-
 ![Page Preview](https://github.com/user-attachments/assets/f9fece7f-4f61-4853-b233-0017e8395692)
 
 ---
